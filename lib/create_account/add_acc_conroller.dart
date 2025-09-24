@@ -38,11 +38,11 @@ class Accountpagecontroller extends GetxController {
 
   void validateFirstName(String value) {
     if (value.isEmpty) {
-      firstNameError.value = "Name field can't be empty";
+      firstNameError.value = "Name field can't be empty.";
     } else if (!_nameRegExp.hasMatch(value)) {
-      firstNameError.value = "Name only contain letters";
+      firstNameError.value = "Name only contain letters.";
     } else if (value.length<=2) {
-      firstNameError.value = "Name contain more than 2 letters";
+      firstNameError.value = "Name contain more than 2 letters.";
     } else {
       firstNameError.value = null; // Clear the error if validation passes
     }
@@ -55,11 +55,11 @@ class Accountpagecontroller extends GetxController {
 
     void validateLastName(String value) {
     if (value.isEmpty) {
-      lastNameError.value = "Name field can't be empty";
+      lastNameError.value = "Name field can't be empty.";
     } else if (!_nameRegExp.hasMatch(value)) {
-      lastNameError.value = "Name only contain letters";
+      lastNameError.value = "Name only contain letters.";
     } else if (value.length<=2) {
-      lastNameError.value = "Name contain more than 2 letters";
+      lastNameError.value = "Name contain more than 2 letters.";
     } else {
       lastNameError.value = null; // Clear the error if validation passes
     }
@@ -82,9 +82,9 @@ class Accountpagecontroller extends GetxController {
     email.value = trimmedValue;
 
     if (trimmedValue.isEmpty) {
-      emailError.value = "Email field can't be empty";
+      emailError.value = "Email field can't be empty.";
     } else if (!_emailRegExp.hasMatch(trimmedValue)) {
-      emailError.value = "Please enter a valid email address";
+      emailError.value = "Please enter a valid email address.";
     } else {
       emailError.value = null;
     } 
@@ -101,7 +101,7 @@ class Accountpagecontroller extends GetxController {
     confirmEmail.value = trimmedValue;
 
     if (trimmedValue.isEmpty) {
-        confirmEmailError.value = "Confirm Email field can't be empty";
+        confirmEmailError.value = "Confirm Email field can't be empty.";
     } else if (email.value != trimmedValue) {
       confirmEmailError.value = "Email addresses do not match.";
     } else {
@@ -127,7 +127,7 @@ final RegExp _passwordRegExp =
     password.value = trimmedValue;
 
     if (trimmedValue.isEmpty) {
-      passwordError.value = "Password can't be empty";
+      passwordError.value = "Password can't be empty.";
     } else if (!_passwordRegExp.hasMatch(trimmedValue)) {
       passwordError.value = "Use 6 or more characters with a mix of letters,numbers & symbols.";
     } else {
@@ -145,7 +145,7 @@ final RegExp _passwordRegExp =
     confirmPassword.value = trimmedValue;
 
     if (trimmedValue.isEmpty) {
-      confirmPasswordError.value = "Confirm Password can't be empty";
+      confirmPasswordError.value = "Confirm Password can't be empty.";
     } else if (password.value != trimmedValue) {
       confirmPasswordError.value = "Password addresses do not match.";
     } else {
