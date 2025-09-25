@@ -15,7 +15,10 @@ class _AccountcreateState extends State<Accountcreate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: () => FocusScope.of(context).unfocus(), // dismiss keyboard
+        child: Stack(
         children: [
           /// Background Image
           SizedBox.expand(
@@ -212,10 +215,11 @@ class _AccountcreateState extends State<Accountcreate> {
                                         child: Obx(
                                           () => DropdownButton<String>(
                                             iconEnabledColor: Colors.black,
-                                            alignment: AlignmentGeometry.center,
                                             dropdownColor: Colors.white,
+                                            alignment: Alignment.center,
                                             borderRadius: BorderRadius.circular(30),
                                             value: controller.selectedItem.value,
+                                            isExpanded: true,
                                             iconSize: 30,
                                             hint: Text(
                                               'Select Lisence Type',
@@ -229,13 +233,15 @@ class _AccountcreateState extends State<Accountcreate> {
                                             items: controller.items.map((String item) {
                                               return DropdownMenuItem<String>(
                                                 value: item,
-                                                child: Text(item,
-                                                  style: TextStyle(
-                                                  fontSize: 18,
-                                                  color: Colors.black,
-                                                  fontFamily: 'Montserrat',
-                                                  fontWeight: FontWeight.normal,
-                                                ),
+                                                child: Center(
+                                                  child: Text(item,
+                                                    style: TextStyle(
+                                                    fontSize: 18,
+                                                    color: Colors.black,
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.normal,
+                                                  ),
+                                                  ),
                                                 ),
                                               );
                                             }).toList(),
@@ -272,7 +278,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                                     return Text(
                                                       date != null
                                                           ? "${date.day}/${date.month}/${date.year}"
-                                                          : "Scheduled Date of Exam",
+                                                          : "Scheduled Exam Date",
                                                         style: TextStyle(
                                                           fontSize: 18,
                                                           color: Colors.black,
@@ -515,6 +521,7 @@ class _AccountcreateState extends State<Accountcreate> {
             ),
           ),
         ],
+      ),
       ),
     );
   }
