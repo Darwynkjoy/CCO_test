@@ -50,9 +50,7 @@ class _BillCreateState extends State<BillCreate> {
                 EdgeInsets.only(top: 150), // Push white container to desired height from the top of the screen.
         
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-        
+                children: [       
                   Container(
                     width: double.infinity,
                     decoration: const BoxDecoration(
@@ -64,7 +62,7 @@ class _BillCreateState extends State<BillCreate> {
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsets.only(left: 20, right: 20, bottom: 40), // padding of the white container. can be used to change the width of the CARD.
+                          const EdgeInsets.only(left: 20, right: 20, bottom: 50), // padding of the white container. can be used to change the width of the CARD.
                       child: Column(
                         children: [
                           Padding(
@@ -90,8 +88,10 @@ class _BillCreateState extends State<BillCreate> {
                               ),
                             ),
 
+                          SizedBox(height: 20,),
+
                           SizedBox(
-                            height: 1100,
+                            height: 1000,
                             child: GridView.builder(
                               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 1,
@@ -100,28 +100,28 @@ class _BillCreateState extends State<BillCreate> {
                                 ),
                                 physics: NeverScrollableScrollPhysics(),
                                 itemCount: controller.plans.length,
-                                padding: EdgeInsets.zero,
+                                padding: EdgeInsets.only(bottom: 0,top: 0),
                                 itemBuilder:(context,index){
                                   final plan = controller.plans[index]; 
                                   return Container(
-                                    height: 20,
-                                    width: 50,
+                                    height: 350,
+                                    width: 400,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       color: plan['Color'],
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
+                                      padding: const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 30),
                                       child: Column(
                                         children: [
                                           Row(
                                             children: [
                                               Text(plan['price']!,
                                               style: TextStyle(
-                                                fontSize: 50,
+                                                fontSize: 60,
                                                 color: Colors.white,
                                                 fontFamily: 'Montserrat',
-                                                fontWeight: FontWeight.w500,
+                                                fontWeight: FontWeight.normal,
                                                 ),
                                               ),
                                               Spacer(),
@@ -129,6 +129,9 @@ class _BillCreateState extends State<BillCreate> {
                                                 Transform.scale(
                                                   scale: 2.0,
                                                   child: Checkbox(
+                                                    side: BorderSide(color: Colors.white, width: .5),// border color and width of the checkbox
+                                                    checkColor: Colors.black, // color of the tick
+                                                    activeColor: Colors.white, // background color of the checkbox when selected
                                                     value: controller.selectedPlanIndex.value == index, // true if this plan is selected
                                                     onChanged: (bool? newValue) {
                                                       if (newValue == true) {
@@ -146,7 +149,7 @@ class _BillCreateState extends State<BillCreate> {
                                                 fontSize: 15,
                                                 color: Colors.white,
                                                 fontFamily: 'Montserrat',
-                                                fontWeight: FontWeight.w500,
+                                                fontWeight: FontWeight.normal,
                                                 ),
                                             ) 
                                         ],
@@ -155,10 +158,69 @@ class _BillCreateState extends State<BillCreate> {
                                   );
                                 }),
                           ),
+
+                          SizedBox(height: 30,),
+
+                          Container(
+                              height: 175,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  // the card shadow
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.4),
+                                    blurRadius: 20,
+                                    offset: const Offset(1, 5),
+                                  ),
+                                ],
+                              ),
+                              child: Card(
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(40),
+                                ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Icon(Icons.pin_drop_outlined,size: 45,color: Colors.red,),
+                                        Text("Contact Address",
+                                          style: TextStyle(
+                                                    fontSize: 25,
+                                                    color: Colors.black,
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.normal,
+                                                    ),
+                                                ) 
+                                      ],
+                                    ),
+                                    SizedBox(height: 20,),
+
+                                    Text("73455 Twentynine Palms Highway,\nTwentynine Palms CA 92277",
+                                      style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.black,
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.normal,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                            ) 
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          SizedBox(height: 30,),
+
                           // The Card 
                           Container(
-                              height: 600,
-                              width: 600,
+                              height: 555,
+                              width: double.infinity,
                               decoration: BoxDecoration(
                                 boxShadow: [
                                   // the card shadow
@@ -175,289 +237,310 @@ class _BillCreateState extends State<BillCreate> {
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(25.0),
+                                  padding: const EdgeInsets.only(top: 30,left: 20,right: 20,bottom: 30),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Evenly space the text fields.and heading.
                                     // contents of the card starts here.
                                     children: [
-                                      
-                                        TextField(
-                                          decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                            ),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.grey.shade300, width: 1),),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.blueAccent, width: 1),), // Border when the TextField is selected and its width when selected.
-                                              errorBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.red, width: 1),),
-                                              focusedErrorBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.red, width: 1),),
-                                            contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
-                                            hint: Center(
-                                              child: Text( "Address",
-                                              style: TextStyle(
-                                                fontSize: 18,
-                                                color: Colors.black,
-                                                fontFamily: 'Montserrat',
-                                                fontWeight: FontWeight.normal,
+                                        Row(
+                                          children: [
+                                            //Checkbox(value: controller.isBlank, onChanged: ),
+                                            Text("Billing Address is same as Contact Address",
+                                            style: TextStyle(
+                                                      fontSize: 16,
+                                                      color: Colors.black,
+                                                      fontFamily: 'Montserrat',
+                                                      fontWeight: FontWeight.normal,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      ),
                                                   ),
-                                                ),
-                                            ),
-                                          ),
-                                          // Input text style, color and font.
+                                          ],
+                                        ),
+                                        Text("Billing Adrress",
                                           style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-        
-                                        TextField(
-                                          decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                            ),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.grey.shade300, width: 1),),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.blueAccent, width: 1),), // Border when the TextField is selected and its width when selected.
-                                              errorBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.red, width: 1),),
-                                              focusedErrorBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.red, width: 1),),
-                                            contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
-                                            hint: Center(
-                                              child: Text( "City",
-                                              style: TextStyle(
-                                                fontSize: 18,
-                                                color: Colors.black,
-                                                fontFamily: 'Montserrat',
-                                                fontWeight: FontWeight.normal,
-                                                  ),
+                                                    fontSize: 30,
+                                                    color: Colors.black,
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.normal,
+                                                    ),
+                                                    textAlign: TextAlign.center,
                                                 ),
-                                            ),
-                                          ),
-                                          // Input text style, color and font.
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-        
-                                      // Select Licence Type dropdown.
-                                      Container(
-                                        height: 60,
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                          border: Border.all(width: 1, color: Colors.grey.shade300),
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.circular(40),
-                                        ),
-                                        child: Center(
-                                          child: Obx(
-                                            () => DropdownButton<String>(
-                                              iconEnabledColor: Colors.black,
-                                              alignment: Alignment.center,
-                                              dropdownColor: Colors.white,
-                                              isExpanded: true,
-                                              borderRadius: BorderRadius.circular(30),
-                                              value: controller.selectedItem.value,
-                                              iconSize: 30,
-                                              hint: Text(
-                                                'Province/State',
+                                        Column(
+                                            children: [
+                                              Align(
+                                                alignment: AlignmentGeometry.centerLeft,
+                                                child: Text("Address",
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.black,
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.normal,
+                                                    ),
+                                                    textAlign: TextAlign.center,
+                                                  ),),
+                                            TextField(
+                                              decoration: InputDecoration(
+                                                border: OutlineInputBorder(
+                                                ),
+                                                  enabledBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.grey.shade300, width: 1),),
+                                                  focusedBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.blueAccent, width: 1),), // Border when the TextField is selected and its width when selected.
+                                                  errorBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.red, width: 1),),
+                                                  focusedErrorBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.red, width: 1),),
+                                                contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
+                                                hint: Text( "Enter your address",
                                                 style: TextStyle(
                                                   fontSize: 18,
                                                   color: Colors.black,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.normal,
-                                                ),
+                                                    ),
+                                                  ),
                                               ),
-                                              items: controller.items.map((String item) {
-                                                return DropdownMenuItem<String>(
-                                                  value: item,
-                                                  child: Center(
-                                                    child: Text(item,
-                                                      style: TextStyle(
-                                                      fontSize: 18,
-                                                      color: Colors.black,
-                                                      fontFamily: 'Montserrat',
-                                                      fontWeight: FontWeight.normal,
+                                              // Input text style, color and font.
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.black,
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                            ),
+                                            ]
+                                        ),
+                                          
+                                        Column(
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentGeometry.centerLeft,
+                                              child: Text("City",
+                                          style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.black,
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.normal,
                                                     ),
+                                                    textAlign: TextAlign.center,
+                                                ),),
+                                            TextField(
+                                              decoration: InputDecoration(
+                                                border: OutlineInputBorder(
+                                                ),
+                                                  enabledBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.grey.shade300, width: 1),),
+                                                  focusedBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.blueAccent, width: 1),), // Border when the TextField is selected and its width when selected.
+                                                  errorBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.red, width: 1),),
+                                                  focusedErrorBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.red, width: 1),),
+                                                contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
+                                                hint: Text( "Enter your city",
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.black,
+                                                  fontFamily: 'Montserrat',
+                                                  fontWeight: FontWeight.normal,
                                                     ),
                                                   ),
-                                                );
-                                              }).toList(),
-                                              onChanged: (String? newValue) {
-                                                controller.updateSelectedItem(newValue);
-                                              },
-                                              // Remove the underline.
-                                              underline: SizedBox.shrink(),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      
-                                      Obx(()=>
-                                        TextField(
-                                          controller: controller.zipcodeController,
-                                          onChanged: controller.validateZipCode,
-                                          decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                            ),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.grey.shade300, width: 1),),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.blueAccent, width: 1),), // Border when the TextField is selected and its width when selected.
-                                              errorBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.red, width: 1),),
-                                              focusedErrorBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.red, width: 1),),
-                                            contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
-                                            errorText: controller.zipMessageError.value,
-                                            hint: Center(
-                                              child: Text( "Zip Code",
+                                              ),
+                                              // Input text style, color and font.
                                               style: TextStyle(
                                                 fontSize: 18,
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
-                                                  ),
-                                                ),
+                                              ),
                                             ),
-                                          ),
-                                          // Input text style, color and font.
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.normal,
-                                          ),
+                                          ],
                                         ),
-                                      ),
-        
-                                      Obx(()=>
-                                        TextField(
-                                          controller: controller.phoneController,
-                                          onChanged: controller.validatePhone,
-                                          decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                            ),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.grey.shade300, width: 1),),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.blueAccent, width: 1),), // Border when the TextField is selected and its width when selected.
-                                              errorBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.red, width: 1),),
-                                              focusedErrorBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.red, width: 1),),
-                                            contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
-                                            errorText: controller.phoneMessageError.value,
-                                            hint: Center(
-                                              child: Text( "Phone",
+                                          
+                                      Column(
+                                        children: [
+                                          Align(
+                                              alignment: AlignmentGeometry.centerLeft,
+                                              child: Text("State",
+                                          style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.black,
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.normal,
+                                                    ),
+                                                    textAlign: TextAlign.center,
+                                                ),),
+                                          Obx(()=>
+                                            TextField(
+                                              controller: controller.phoneController,
+                                              onChanged: controller.validatePhone,
+                                              decoration: InputDecoration(
+                                                border: OutlineInputBorder(
+                                                ),
+                                                  enabledBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.grey.shade300, width: 1),),
+                                                  focusedBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.blueAccent, width: 1),), // Border when the TextField is selected and its width when selected.
+                                                  errorBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.red, width: 1),),
+                                                  focusedErrorBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.red, width: 1),),
+                                                contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
+                                                errorText: controller.phoneMessageError.value,
+                                                hint: Text( "Enter your state",
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.black,
+                                                  fontFamily: 'Montserrat',
+                                                  fontWeight: FontWeight.normal,
+                                                    ),
+                                                  ),
+                                              ),
+                                              // Input text style, color and font.
                                               style: TextStyle(
                                                 fontSize: 18,
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
-                                                  ),
-                                                ),
-                                            ),
-                                          ),
-                                          // Input text style, color and font.
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-                                      ),
-        
-                                      //Obx(()=>
-                                        TextField(
-                                          decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                            ),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.grey.shade300, width: 1),),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.blueAccent, width: 1),), // Border when the TextField is selected and its width when selected.
-                                              errorBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.red, width: 1),),
-                                              focusedErrorBorder: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(40),
-                                                borderSide: BorderSide(color: Colors.red, width: 1),),
-                                            contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
-                                            hint: Center(
-                                              child: Text( "Verification Code",
-                                              style: TextStyle(
-                                                fontSize: 18,
-                                                color: Colors.black,
-                                                fontFamily: 'Montserrat',
-                                                fontWeight: FontWeight.normal,
-                                                  ),
-                                                ),
-                                            ),
-                                          ),
-                                          // Input text style, color and font.
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-                                      //),
-        
-                                      // Next button.
-                                      SizedBox(
-                                        height: 60, // next button size.
-                                        width: double.infinity,
-                                        child: ElevatedButton(
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.red,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadiusGeometry.circular(40)
-                                            ),
-                                          ),
-                                          onPressed: (){},
-                                          child: Text("Next",
-                                            style: TextStyle(
-                                              fontSize: 18,
-                                              color: Colors.white,
-                                              fontFamily: "Montserrat",
-                                              fontWeight: FontWeight.bold,
                                               ),
                                             ),
                                           ),
+                                        ],
                                       ),
+                                  
+                                      Column(
+                                        children: [
+                                          Align(
+                                              alignment: AlignmentGeometry.centerLeft,
+                                              child: Text("Zipcode",
+                                          style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.black,
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.normal,
+                                                    ),
+                                                    textAlign: TextAlign.center,
+                                                ),),
+                                          Obx(()=>
+                                            TextField(
+                                              controller: controller.zipcodeController,
+                                              onChanged: controller.validateZipCode,
+                                              decoration: InputDecoration(
+                                                border: OutlineInputBorder(
+                                                ),
+                                                  enabledBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.grey.shade300, width: 1),),
+                                                  focusedBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.blueAccent, width: 1),), // Border when the TextField is selected and its width when selected.
+                                                  errorBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.red, width: 1),),
+                                                  focusedErrorBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderSide: BorderSide(color: Colors.red, width: 1),),
+                                                contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
+                                                errorText: controller.zipMessageError.value,
+                                                helper: Text( "Zipcode must be 5 digits",
+                                                style: TextStyle(
+                                                  fontSize: 9,
+                                                  color: Colors.black,
+                                                  fontFamily: 'Montserrat',
+                                                  fontWeight: FontWeight.normal,
+                                                    ),
+                                                  ),
+                                                hint: Text( "Enter your Zipcode",
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.black,
+                                                  fontFamily: 'Montserrat',
+                                                  fontWeight: FontWeight.normal,
+                                                    ),
+                                                  ),
+                                              ),
+                                              // Input text style, color and font.
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.black,
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                          
                                     ],
                                   ),
                                 ),
                               )
+                            ),
+
+                            
+
+                            SizedBox(height: 30,),
+
+                            // Submit button.
+                              SizedBox(
+                                height: 60, // next button size.
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.red,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadiusGeometry.circular(40)
+                                    ),
+                                  ),
+                                  onPressed: (){},
+                                  child: Text("Submit",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      fontFamily: "Montserrat",
+                                      fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                              ),
+
+                            SizedBox(height: 30,),
+
+                            // Cancel button.
+                            SizedBox(
+                              height: 60, // next button size.
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  side: BorderSide(color: Color(0xFF8D99AE)),
+                                  backgroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadiusGeometry.circular(40)
+                                  ),
+                                ),
+                                onPressed: (){},
+                                child: Text("Cancel",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                    fontFamily: "Montserrat",
+                                    fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
                             ),
                         ],
                       ),

@@ -7,21 +7,21 @@ class Billpagecontroller extends GetxController {
   final List<Map<String, dynamic>> plans = [
   {
     "price": "\$49",
-    "Color": Colors.blue,
+    "Color": Color(0xFF6257A8),
     "description":
-        "1 morning air carried a quiet stillness, broken only by the distant sound of birds greeting the day. A soft glow spilled across the horizon, painting the clouds in shades of gold and rose. Streets that would soon be filled with movement remained calm, as if the world itself was pausing before its daily rhythm began. In those fleeting moments, time felt generous."
+        "1 morning air carried a quiet stillness, broken only by the distant sound of birds greeting the day. A soft glow spilled across the horizon, painting the clouds in shades of gold and rose. Streets that would soon be filled with movement remained calm, as if the world itself was pausing before its daily."
   },
   {
     "price": "\$79",
-    "Color": Colors.redAccent,
+    "Color": Color(0xFF259020),
     "description":
-        "2 morning air carried a quiet stillness, broken only by the distant sound of birds greeting the day. A soft glow spilled across the horizon, painting the clouds in shades of gold and rose. Streets that would soon be filled with movement remained calm, as if the world itself was pausing before its daily rhythm began. In those fleeting moments, time felt generous."
+        "2 morning air carried a quiet stillness, broken only by the distant sound of birds greeting the day. A soft glow spilled across the horizon, painting the clouds in shades of gold and rose. Streets that would soon be filled with movement remained calm, as if the world itself was pausing before its daily."
   },
   {
     "price": "\$299",
-    "Color": Colors.greenAccent,
+    "Color": Color(0xFFB73434),
     "description":
-        "3 morning air carried a quiet stillness, broken only by the distant sound of birds greeting the day. A soft glow spilled across the horizon, painting the clouds in shades of gold and rose. Streets that would soon be filled with movement remained calm, as if the world itself was pausing before its daily rhythm began. In those fleeting moments, time felt generous."
+        "3 morning air carried a quiet stillness, broken only by the distant sound of birds greeting the day. A soft glow spilled across the horizon, painting the clouds in shades of gold and rose. Streets that would soon be filled with movement remained calm, as if the world itself was pausing before its daily."
   },
 ];
 
