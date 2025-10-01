@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 class Billpagecontroller extends GetxController {
 
   var selectedPlanIndex = (-1).obs; // -1 means none selected
+  var isChecked = false.obs;
+
   final List<Map<String, dynamic>> plans = [
   {
     "price": "\$49",
