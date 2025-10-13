@@ -50,11 +50,13 @@ class __AccountcreateState extends State<Addresscreate> {
                 EdgeInsets.only(top: 150), // Push white container to desired height from the top of the screen.
         
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
         
                   Container(
                     width: double.infinity,
+                    constraints: BoxConstraints(
+                      minHeight: MediaQuery.of(context).size.height - 150, // fills below area when viewed in devices large screen 
+                    ),
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -69,7 +71,7 @@ class __AccountcreateState extends State<Addresscreate> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(
-                                bottom: 10), // for spacing with the next widget
+                                bottom: 30), // for spacing with the next widget
                             child: Container(
                               height: 150,
                               width: 250,
@@ -84,8 +86,8 @@ class __AccountcreateState extends State<Addresscreate> {
         
                           // The Card 
                           Container(
-                              height: 600,
-                              width: 600,
+                              height: 750,
+                              width: 550,
                               decoration: BoxDecoration(
                                 boxShadow: [
                                   // the card shadow
@@ -145,7 +147,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                             fontWeight: FontWeight.normal,
                                           ),
                                         ),
-        
+                                  
                                         TextField(
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(
@@ -182,7 +184,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                             fontWeight: FontWeight.normal,
                                           ),
                                         ),
-        
+                                  
                                       // Select Licence Type dropdown.
                                       Container(
                                         height: 60,
@@ -277,7 +279,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                           ),
                                         ),
                                       ),
-        
+                                  
                                       Obx(()=>
                                         TextField(
                                           controller: controller.phoneController,
@@ -319,7 +321,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                           ),
                                         ),
                                       ),
-        
+                                  
                                       //Obx(()=>
                                         TextField(
                                           decoration: InputDecoration(
@@ -358,16 +360,16 @@ class __AccountcreateState extends State<Addresscreate> {
                                           ),
                                         ),
                                       //),
-        
+                                  
                                       // Next button.
                                       SizedBox(
-                                        height: 60, // next button size.
+                                        height: 55, // next button size.
                                         width: double.infinity,
                                         child: ElevatedButton(
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor: Colors.red,
                                             shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadiusGeometry.circular(40)
+                                              borderRadius: BorderRadius.circular(40)
                                             ),
                                           ),
                                           onPressed: (){},

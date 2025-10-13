@@ -111,7 +111,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                   children: [
                                      Text("Create account",
                                     style: TextStyle(
-                                      fontSize: 35,
+                                      fontSize: 30,
                                       color: Colors.black,
                                       fontFamily: 'Montserrat', // font Montserrat
                                       ),
@@ -488,7 +488,7 @@ class _AccountcreateState extends State<Accountcreate> {
 
                                     // Next button.
                                     SizedBox(
-                                      height: 60, // next button size.
+                                      height: 55, // next button size.
                                       width: double.infinity,
                                       child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(

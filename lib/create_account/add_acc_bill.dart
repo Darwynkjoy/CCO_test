@@ -64,7 +64,7 @@ class _BillCreateState extends State<BillCreate> {
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsGeometry.only(top: 30,bottom: 30,left: 20,right: 20),
+                      padding: EdgeInsetsGeometry.only(top: 0,bottom: 30,left: 20,right: 20),
                       child: Column(
                         children: [
                           Padding(
@@ -91,70 +91,60 @@ class _BillCreateState extends State<BillCreate> {
 
                           SizedBox(height: 20,),
 
-                          GridView.builder(
-                            shrinkWrap: true,
-                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 1,
-                              mainAxisSpacing: 20,
-                              //childAspectRatio: (1.9/ .41/* change this to make changes in height */)                   
-                              ),
-                              physics: NeverScrollableScrollPhysics(),
-                              itemCount: controller.plans.length,
-                              padding: EdgeInsets.only(bottom: 0,top: 0),
-                              itemBuilder:(context,index){ 
-                                final plan = controller.plans[index]; 
+                          Column(
+                            children: List.generate(
+                              controller.plans.length,
+                              (index) {
+                                final plan = controller.plans[index];
                                 return Container(
+                                  margin: const EdgeInsets.only(bottom: 20),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
                                     color: plan['Color'],
                                   ),
-                                  child: Padding(
-                                    padding: EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 30),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Text(plan['price']!,
-                                            style: TextStyle(
+                                  padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            plan['price']!,
+                                            style: const TextStyle(
                                               fontSize: 60,
                                               color: Colors.white,
                                               fontFamily: 'Montserrat',
-                                              fontWeight: FontWeight.normal,
-                                              ),
                                             ),
-                                            Spacer(),
-                                            Obx(() => 
-                                              Transform.scale(
-                                                scale: 2.0,
-                                                child: Checkbox(
-                                                  side: BorderSide(color: Colors.white, width: .5),// border color and width of the checkbox
-                                                  checkColor: Colors.black, // color of the tick
-                                                  activeColor: Colors.white, // background color of the checkbox when selected
-                                                  value: controller.selectedPlanIndex.value == index, // true if this plan is selected
-                                                  onChanged: (bool? newValue) {
-                                                    if (newValue == true) {
-                                                      controller.selectedPlanIndex.value = index; // select this plan
-                                                    } else {
-                                                      controller.selectedPlanIndex.value = -1; // deselect
-                                                    }
-                                                  },
-                                                ),
-                                              ))
-                                            ],
                                           ),
-                                          Text(plan['description']!,
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.white,
-                                              fontFamily: 'Montserrat',
-                                              fontWeight: FontWeight.normal,
-                                              ),
-                                          ) 
-                                      ],
-                                    ),
+                                          const Spacer(),
+                                          Obx(() => Transform.scale(
+                                            scale: 2.0,
+                                            child: Checkbox(
+                                              side: const BorderSide(color: Colors.white, width: 0.5),
+                                              checkColor: Colors.black,
+                                              activeColor: Colors.white,
+                                              value: controller.selectedPlanIndex.value == index,
+                                              onChanged: (bool? newValue) {
+                                                controller.selectedPlanIndex.value =
+                                                    newValue == true ? index : -1;
+                                              },
+                                            ),
+                                          )),
+                                        ],
+                                      ),
+                                      Text(
+                                        plan['description']!,
+                                        style: const TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontFamily: 'Montserrat',
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 );
-                              }),
+                              },
+                            ),
+                          ),
 
                           SizedBox(height: 30,),
 
@@ -184,7 +174,7 @@ class _BillCreateState extends State<BillCreate> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
-                                        Icon(Icons.pin_drop_outlined,size: 45,color: Colors.red,),
+                                        Icon(Icons.pin_drop_outlined,size: 30,color: Colors.red,),
                                         Text("Contact Address",
                                           style: TextStyle(
                                                     fontSize: 25,
@@ -267,7 +257,7 @@ class _BillCreateState extends State<BillCreate> {
                                         ),
                                         Text("Billing Adrress",
                                           style: TextStyle(
-                                                    fontSize: 30,
+                                                    fontSize: 25,
                                                     color: Colors.black,
                                                     fontFamily: 'Montserrat',
                                                     fontWeight: FontWeight.normal,
@@ -504,8 +494,8 @@ class _BillCreateState extends State<BillCreate> {
 
                             // Submit button.
                               SizedBox(
-                                height: 60, // next button size.
-                                width: double.infinity,
+                                height: 55, // next button size.
+                                width: 500,
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.red,
@@ -529,8 +519,8 @@ class _BillCreateState extends State<BillCreate> {
 
                             // Cancel button.
                             SizedBox(
-                              height: 60, // next button size.
-                              width: double.infinity,
+                              height: 55, // next button size.
+                              width: 500,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   side: BorderSide(color: Color(0xFF8D99AE)),
