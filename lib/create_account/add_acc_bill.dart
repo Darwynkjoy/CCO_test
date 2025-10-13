@@ -494,7 +494,7 @@ class _BillCreateState extends State<BillCreate> {
 
                             // Submit button.
                               SizedBox(
-                                height: 55, // next button size.
+                                height: 60, // next button size.
                                 width: 500,
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
@@ -519,10 +519,11 @@ class _BillCreateState extends State<BillCreate> {
 
                             // Cancel button.
                             SizedBox(
-                              height: 55, // next button size.
+                              height: 60, // next button size.
                               width: 500,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
+                                  shadowColor: Colors.white,
                                   side: BorderSide(color: Color(0xFF8D99AE)),
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(

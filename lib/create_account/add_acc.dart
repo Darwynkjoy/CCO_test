@@ -488,7 +488,7 @@ class _AccountcreateState extends State<Accountcreate> {
 
                                     // Next button.
                                     SizedBox(
-                                      height: 55, // next button size.
+                                      height: 60, // next button size.
                                       width: double.infinity,
                                       child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
