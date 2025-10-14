@@ -91,7 +91,7 @@ class _AccountcreateState extends State<Accountcreate> {
                               boxShadow: [
                                 // the card shadow
                                 BoxShadow(
-                                  color: Colors.grey.withOpacity(0.4),
+                                  color: Colors.grey.withAlpha(100),
                                   blurRadius: 20,
                                   offset: const Offset(1, 5),
                                 ),

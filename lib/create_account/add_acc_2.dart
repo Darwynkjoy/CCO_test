@@ -92,7 +92,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                 boxShadow: [
                                   // the card shadow
                                   BoxShadow(
-                                    color: Colors.grey.withOpacity(0.4),
+                                    color: Colors.grey.withAlpha(100),
                                     blurRadius: 20,
                                     offset: const Offset(1, 5),
                                   ),
