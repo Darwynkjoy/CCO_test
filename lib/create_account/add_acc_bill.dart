@@ -97,6 +97,7 @@ class _BillCreateState extends State<BillCreate> {
                               (index) {
                                 final plan = controller.plans[index];
                                 return Container(
+                                  width: 600,
                                   margin: const EdgeInsets.only(bottom: 20),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
@@ -150,7 +151,7 @@ class _BillCreateState extends State<BillCreate> {
 
                           Container(
                               height: 175,
-                              width: double.infinity,
+                              width: 600,
                               decoration: BoxDecoration(
                                 boxShadow: [
                                   // the card shadow
@@ -207,7 +208,7 @@ class _BillCreateState extends State<BillCreate> {
                           // The Card 
                           Container(
                               height: 555,
-                              width: double.infinity,
+                              width: 600,
                               decoration: BoxDecoration(
                                 boxShadow: [
                                   // the card shadow

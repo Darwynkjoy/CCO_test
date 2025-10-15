@@ -30,6 +30,7 @@ class _Trainingpage1State extends State<Trainingpage1> {
             // Back Button
             Positioned(
               top: 50,
+              left: 20,
               child:
                   IconButton(
                     onPressed: () {},
@@ -91,6 +92,7 @@ class _Trainingpage1State extends State<Trainingpage1> {
                                     final plan = controller.plans[index];
                                     return Container(
                                       height: 94,
+                                      width: 600,
                                       margin: const EdgeInsets.only(bottom: 20),//spacing between the grid items
                                       decoration: BoxDecoration(
                                         boxShadow: [
@@ -109,21 +111,24 @@ class _Trainingpage1State extends State<Trainingpage1> {
                                           Row(
                                             children: [
                                               Expanded(
-                                                child: Text(
-                                                  plan['description']!,
-                                                  style: const TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: Colors.black,
-                                                    fontFamily: 'Montserrat',
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(4.0),
+                                                  child: Text(
+                                                    plan['description']!,
+                                                    style: const TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight: FontWeight.w600,
+                                                      color: Colors.black,
+                                                      fontFamily: 'Montserrat',
+                                                    ),
+                                                    maxLines: 2,                     // ✅ Limit to 2 lines
+                                                    overflow: TextOverflow.clip, // ✅ Add "..." if it still overflows
+                                                    softWrap: true, 
                                                   ),
-                                                  maxLines: 2,                     // ✅ Limit to 2 lines
-                                                  overflow: TextOverflow.clip, // ✅ Add "..." if it still overflows
-                                                  softWrap: true, 
                                                 ),
                                               ),
                                               Obx(() => Transform.scale(
-                                                scale: 2.0,
+                                                scale: 1.8,
                                                 child: Checkbox(
                                                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                                                   side: const BorderSide(color: Color(0xFF7F7F7F), width: 0.5),
@@ -146,7 +151,11 @@ class _Trainingpage1State extends State<Trainingpage1> {
                                 ),
                               ),
 
-                              SizedBox(height: 10,),
+                              SizedBox(
+                                height: 50,
+                              ),
+
+                              
                               
                             // Submit button.
                               SizedBox(
