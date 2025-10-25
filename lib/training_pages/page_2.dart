@@ -13,6 +13,7 @@ class _Trainingpage2State extends State<Trainingpage2> {
   @override
   Widget build(BuildContext context) {
     final Trainingpage2controller controller = Get.put(Trainingpage2controller());
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: GestureDetector(
               behavior: HitTestBehavior.translucent,
@@ -241,6 +242,60 @@ class _Trainingpage2State extends State<Trainingpage2> {
                                 ),
                               )
                             ),
+
+                            SizedBox(height: 30,), // space between card and buttons.
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                               SizedBox(
+                                  width: screenWidth * 0.4,
+                                  height: 60,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      shadowColor: Colors.white,
+                                      side: BorderSide(color: Color(0xFF8D99AE)),
+                                      backgroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadiusGeometry.circular(40)
+                                      ),
+                                    ),
+                                    onPressed: (){},
+                                    child: Text("End",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.black,
+                                        fontFamily: "Montserrat",
+                                        fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                ),
+                                SizedBox(
+                                  width: screenWidth * 0.4,
+                                  height: 60,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      shadowColor: Colors.white,
+                                      side: BorderSide(color: Color(0xFF8D99AE)),
+                                      backgroundColor: Color(0xFFCF0829),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadiusGeometry.circular(40)
+                                      ),
+                                    ),
+                                    onPressed: (){},
+                                    child: Text("Next",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.white,
+                                        fontFamily: "Montserrat",
+                                        fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                ),
+                              ],
+                            )
                         ],
                       ),
                     ),
