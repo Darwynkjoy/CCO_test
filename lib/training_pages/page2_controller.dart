@@ -17,4 +17,10 @@ class Trainingpage2controller extends GetxController {
   },
 ];
 
+  final selectedIndex = RxnInt();
+
+  void selectPlan(int index) {
+    selectedIndex.value = index;
+  }
+
 }

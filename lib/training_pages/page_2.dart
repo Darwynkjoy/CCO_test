@@ -159,36 +159,44 @@ class _Trainingpage2State extends State<Trainingpage2> {
                                                 height: 20,
                                               ),
 
-                                              Column(
-                                                children: List.generate(
-                                                  controller.plans.length,
-                                                  (index) {
-                                                    final plan = controller.plans[index];
-                                                    return Container(
-                                                      height: 60,
-                                                      width: 600,
-                                                      margin: const EdgeInsets.only(bottom: 20),//spacing between the grid items
-                                                      decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.circular(10),
-                                                        color: Colors.white,
-                                                        border: Border.all(
-                                                          color: Colors.grey,
-                                                          width: 1,
-                                                        ),
-                                                      ),
-                                                      child: Center(
-                                                        child: Text(
-                                                          plan['description']!,
-                                                          style: const TextStyle(
-                                                            fontSize: 16,
-                                                            fontWeight: FontWeight.w500,
-                                                            color: Colors.black,
-                                                            fontFamily: 'Montserrat',
+                                              Obx(() =>
+                                                Column(
+                                                  children: List.generate(
+                                                    controller.plans.length,
+                                                    (index) {
+                                                      final plan = controller.plans[index];
+                                                      final bool isSelected = controller.selectedIndex.value == index;
+                                                      return GestureDetector(
+                                                        onTap: () {
+                                                          controller.selectPlan(index);
+                                                        },
+                                                        child: Container(
+                                                          height: 60,
+                                                          width: 600,
+                                                          margin: const EdgeInsets.only(bottom: 20),//spacing between the grid items
+                                                          decoration: BoxDecoration(
+                                                            borderRadius: BorderRadius.circular(10),
+                                                            color: isSelected ? Colors.green : Colors.white,
+                                                            border: Border.all(
+                                                              color: isSelected ? Colors.green : Colors.grey,
+                                                              width: 1,
+                                                            ),
+                                                          ),
+                                                          child: Center(
+                                                            child: Text(
+                                                              plan['description']!,
+                                                              style: TextStyle(
+                                                                fontSize: 16,
+                                                                fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+                                                                color: isSelected ? Colors.white : Colors.black,
+                                                                fontFamily: 'Montserrat',
+                                                              ),
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    );
-                                                  },
+                                                      );
+                                                    },
+                                                  ),
                                                 ),
                                               ),
 
