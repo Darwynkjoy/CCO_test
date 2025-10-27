@@ -14,6 +14,7 @@ class _Trainingpage2State extends State<Trainingpage2> {
   Widget build(BuildContext context) {
     final Trainingpage2controller controller = Get.put(Trainingpage2controller());
     final screenWidth = MediaQuery.of(context).size.width;
+    //final screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: GestureDetector(
               behavior: HitTestBehavior.translucent,
@@ -99,6 +100,7 @@ class _Trainingpage2State extends State<Trainingpage2> {
                           SizedBox(height: 20,), // space between heading and card.
 
                           Container(
+                              //height: screenheight * 0.65,
                               height: 650,
                               width: 550,
                               decoration: BoxDecoration(
@@ -176,9 +178,9 @@ class _Trainingpage2State extends State<Trainingpage2> {
                                                           margin: const EdgeInsets.only(bottom: 20),//spacing between the grid items
                                                           decoration: BoxDecoration(
                                                             borderRadius: BorderRadius.circular(10),
-                                                            color: isSelected ? Colors.green : Colors.white,
+                                                            color: isSelected ? Color(0xFF00BA1F) : Colors.white,
                                                             border: Border.all(
-                                                              color: isSelected ? Colors.green : Colors.grey,
+                                                              color: isSelected ? Color(0xFF00BA1F) : Colors.grey,
                                                               width: 1,
                                                             ),
                                                           ),
