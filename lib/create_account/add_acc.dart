@@ -33,7 +33,9 @@ class _AccountcreateState extends State<Accountcreate> {
             top: 50,
             left: 20,
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.back();
+              },
               style: IconButton.styleFrom(
                 backgroundColor: Colors.white,
               ),
@@ -497,7 +499,9 @@ class _AccountcreateState extends State<Accountcreate> {
                                             borderRadius: BorderRadiusGeometry.circular(40)
                                           ),
                                         ),
-                                        onPressed: (){},
+                                        onPressed: () {
+      Get.toNamed('second');
+    },
                                         child: Text("Next",
                                           style: TextStyle(
                                             fontSize: 18,

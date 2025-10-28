@@ -32,7 +32,7 @@ class __AccountcreateState extends State<Addresscreate> {
               top: 50,
               left: 20,
               child: IconButton(
-                onPressed: () {},
+                onPressed: () => Get.back(),
                 style: IconButton.styleFrom(
                   backgroundColor: Colors.white,
                 ),
