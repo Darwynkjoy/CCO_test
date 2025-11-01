@@ -56,7 +56,7 @@ class _BillCreateState extends State<BillCreate> {
         
             //  White Container with rounded top corners
             Padding(
-              padding: const EdgeInsets.only(top: 150.0),
+              padding:  EdgeInsets.only(top: 130.0),
               child: Column(
                 children: [       
                   Container(

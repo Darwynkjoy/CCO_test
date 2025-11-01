@@ -53,7 +53,7 @@ class __AccountcreateState extends State<Addresscreate> {
         
             //  White Container with rounded top corners
             Padding(
-              padding: const EdgeInsets.only(top: 150.0),
+              padding: const EdgeInsets.only(top: 130.0),
               child: Column(
                 children: [
                   Container(

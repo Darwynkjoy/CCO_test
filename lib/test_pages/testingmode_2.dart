@@ -72,7 +72,7 @@ class _Testingmode2State extends State<Testingmode2> {
               //  White Container with rounded top corners
               Padding(
                 padding:
-                  EdgeInsets.only(top: 150), // Push white container to desired height from the top of the screen.
+                  EdgeInsets.only(top: 130), // Push white container to desired height from the top of the screen.
                 child: Column(
                 children: [       
                   Container(
