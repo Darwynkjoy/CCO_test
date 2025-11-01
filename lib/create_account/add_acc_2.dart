@@ -13,7 +13,7 @@ class __AccountcreateState extends State<Addresscreate> {
   final Addresspagecontroller controller = Get.put(Addresspagecontroller());
   @override
   Widget build(BuildContext context) {
-    //final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SingleChildScrollView(
@@ -75,13 +75,19 @@ class __AccountcreateState extends State<Addresscreate> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(
-                                bottom: 30), // for spacing with the next widget
+                                bottom: 10), // for spacing with the next widget
                             child: Container(
-                              height: 150,
-                              width: 250,
-                              decoration: BoxDecoration(
-                                image: const DecorationImage(
-                                  image: AssetImage("assets/images/logo2.png"),
+                              constraints: const BoxConstraints(
+                                maxHeight: 250,
+                                maxWidth: 400,
+                                minHeight: 170,
+                                minWidth: 220,
+                              ),
+                              height: screenHeight * 0.19,
+                              width: screenWidth * 0.7,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage('assets/images/logo2.png'),
                                   fit: BoxFit.cover,
                                 ),
                               ),

@@ -19,9 +19,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/training1',
+      initialRoute: '/createaccount',
       getPages: [
-        //GetPage(name: '/splash', page: () => SplashScreen()),
         GetPage(name: '/createaccount', page: () => Accountcreate()),
         GetPage(name: '/address', page: () => Addresscreate()),
         GetPage(name: '/bill', page: () => BillCreate()),
