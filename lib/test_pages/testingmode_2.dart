@@ -14,61 +14,66 @@ class _Testingmode2State extends State<Testingmode2> {
   Widget build(BuildContext context) {
   final Testingmode2controller controller = Get.put(Testingmode2controller());
     //final screenWidth = MediaQuery.of(context).size.width;
-    final screenheight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: () => FocusScope.of(context).unfocus(), // dismiss keyboard
-        child: Stack(
-          children: [
-            /// Background Image
-            SizedBox.expand(
-              child: Image.asset(
-                "assets/images/Backhh.png",
-                fit: BoxFit.cover,
-              ),
-            ),
-        
-            // Back Button
-            Positioned(
-              top: 40,
-              left: 20,
-              child:
-                IconButton(
-                  onPressed: () {},
-                  style: IconButton.styleFrom(
-                    backgroundColor: Colors.white,
-                  ),
-                  icon: Icon(
-                    Icons.arrow_back_ios_new,
-                    color: Colors.black,
+      body: SingleChildScrollView(
+        child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onTap: () => FocusScope.of(context).unfocus(), // dismiss keyboard
+          child: Stack(
+            children: [
+              /// Background Image
+              Container(
+                  width: double.infinity,
+                  height: screenHeight,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/Backhh.png'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-            ),
-
-            Positioned(
-              top: 50,
-              left: 100,
-              right: 100,
-              child: Center(
-                child: Text("Training",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                          fontFamily: 'Montserrat', // font Montserrat
-                          ),
-                        ),
+          
+              // Back Button
+              Positioned(
+                top: 50,
+                left: 20,
+                child:
+                    IconButton(
+                      onPressed: (){
+                        Get.back();
+                      },
+                      style: IconButton.styleFrom(
+                        backgroundColor: Colors.white,
+                      ),
+                      icon: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.black,
+                      ),
+                    ),
               ),
-            ),
         
-            //  White Container with rounded top corners
-            SingleChildScrollView(
-              physics: ClampingScrollPhysics(),
-              padding:
-                EdgeInsets.only(top: 100), // Push white container to desired height from the top of the screen.
-        
-              child: Column(
+              Positioned(
+                top: 60,
+                left: 100,
+                right: 100,
+                child: Center(
+                  child: Text("Training",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                            fontFamily: 'Montserrat', // font Montserrat
+                            ),
+                          ),
+                ),
+              ),
+          
+              //  White Container with rounded top corners
+              Padding(
+                padding:
+                  EdgeInsets.only(top: 150), // Push white container to desired height from the top of the screen.
+                child: Column(
                 children: [       
                   Container(
                     width: double.infinity,
@@ -270,6 +275,7 @@ class _Testingmode2State extends State<Testingmode2> {
             ),
           ],
         ),
+      ),
       ),
     );
   }

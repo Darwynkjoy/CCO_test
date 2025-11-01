@@ -14,61 +14,66 @@ class _Trainingpage3State extends State<Trainingpage3> {
   Widget build(BuildContext context) {
   final Trainingpage3controller controller = Get.put(Trainingpage3controller());
     //final screenWidth = MediaQuery.of(context).size.width;
-    final screenheight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: () => FocusScope.of(context).unfocus(), // dismiss keyboard
-        child: Stack(
-          children: [
-            /// Background Image
-            SizedBox.expand(
-              child: Image.asset(
-                "assets/images/Backhh.png",
-                fit: BoxFit.cover,
-              ),
-            ),
-        
-            // Back Button
-            Positioned(
-              top: 40,
-              left: 20,
-              child:
-                IconButton(
-                  onPressed: () {},
-                  style: IconButton.styleFrom(
-                    backgroundColor: Colors.white,
-                  ),
-                  icon: Icon(
-                    Icons.arrow_back_ios_new,
-                    color: Colors.black,
+      body: SingleChildScrollView(
+        child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onTap: () => FocusScope.of(context).unfocus(), // dismiss keyboard
+          child: Stack(
+            children: [
+              /// Background Image
+              Container(
+                  width: double.infinity,
+                  height: screenHeight,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/Backhh.png'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-            ),
-
-            Positioned(
-              top: 50,
-              left: 100,
-              right: 100,
-              child: Center(
-                child: Text("Training",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                          fontFamily: 'Montserrat', // font Montserrat
-                          ),
-                        ),
+          
+              // Back Button
+              Positioned(
+                top: 50,
+                left: 20,
+                child:
+                    IconButton(
+                      onPressed: (){
+                        Get.back();
+                      },
+                      style: IconButton.styleFrom(
+                        backgroundColor: Colors.white,
+                      ),
+                      icon: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.black,
+                      ),
+                    ),
               ),
-            ),
         
-            //  White Container with rounded top corners
-            SingleChildScrollView(
-              physics: ClampingScrollPhysics(),
-              padding:
-                EdgeInsets.only(top: 100), // Push white container to desired height from the top of the screen.
-        
-              child: Column(
+              Positioned(
+                top: 60,
+                left: 100,
+                right: 100,
+                child: Center(
+                  child: Text("Training",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                            fontFamily: 'Montserrat', // font Montserrat
+                            ),
+                          ),
+                ),
+              ),
+          
+              //  White Container with rounded top corners
+              Padding(
+                padding:
+                  EdgeInsets.only(top: 150), // Push white container to desired height from the top of the screen.
+                child: Column(
                 children: [       
                   Container(
                     width: double.infinity,
@@ -98,9 +103,9 @@ class _Trainingpage3State extends State<Trainingpage3> {
                           ),
 
                           Padding(
-                            padding:  EdgeInsets.symmetric(vertical: screenheight * 0.035,),
+                            padding:  EdgeInsets.symmetric(vertical: screenHeight * 0.035,),
                             child: Container(
-                              height: screenheight * 0.35,
+                              height: screenHeight * 0.35,
                               width: 600,
                               color: Colors.amber,
                               child: Center(
@@ -124,7 +129,7 @@ class _Trainingpage3State extends State<Trainingpage3> {
                                 return Container(
                                   height: 62,
                                   width: 600,
-                                  margin: EdgeInsets.only(bottom: screenheight * 0.035,),//spacing between the grid items
+                                  margin: EdgeInsets.only(bottom: screenHeight * 0.035,),//spacing between the grid items
                                   decoration: BoxDecoration(
                                     color: plan['Color'],
                                     borderRadius: BorderRadius.circular(12),
@@ -154,7 +159,7 @@ class _Trainingpage3State extends State<Trainingpage3> {
                                             color: Colors.white,
                                             boxShadow: [
                                               BoxShadow(
-                                                color: Colors.black.withOpacity(0.3),
+                                                color: Colors.black.withAlpha(100),
                                                 blurRadius: 1,
                                                 offset: Offset(0, 2), // changes position of shadow
                                               ),
@@ -181,7 +186,7 @@ class _Trainingpage3State extends State<Trainingpage3> {
                             ),
                           ),
 
-                          SizedBox(height: screenheight * 0.04,),
+                          SizedBox(height: screenHeight * 0.04,),
 
                           SizedBox(
                             width: 600,
@@ -213,6 +218,7 @@ class _Trainingpage3State extends State<Trainingpage3> {
             ),
           ],
         ),
+      ),
       ),
     );
   }

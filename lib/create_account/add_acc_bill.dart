@@ -16,26 +16,34 @@ class _BillCreateState extends State<BillCreate> {
   
   @override
   Widget build(BuildContext context) {
+    //final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: () => FocusScope.of(context).unfocus(), // dismiss keyboard
-        child: Stack(
+      body: SingleChildScrollView(
+        child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onTap: () => FocusScope.of(context).unfocus(), // dismiss keyboard
+          child: Stack(
           children: [
-            /// Background Image
-            SizedBox.expand(
-              child: Image.asset(
-                "assets/images/Backhh.png",
-                fit: BoxFit.cover,
-              ),
-            ),
+            Container(
+                  width: double.infinity,
+                  height: screenHeight,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/Backhh.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
         
             // Back Button
             Positioned(
               top: 50,
               left: 20,
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.back();
+                },
                 style: IconButton.styleFrom(
                   backgroundColor: Colors.white,
                 ),
@@ -47,11 +55,8 @@ class _BillCreateState extends State<BillCreate> {
             ),
         
             //  White Container with rounded top corners
-            SingleChildScrollView(
-              physics: ClampingScrollPhysics(),
-              padding:
-                EdgeInsets.only(top: 150), // Push white container to desired height from the top of the screen.
-        
+            Padding(
+              padding: const EdgeInsets.only(top: 150.0),
               child: Column(
                 children: [       
                   Container(
@@ -531,7 +536,9 @@ class _BillCreateState extends State<BillCreate> {
                                     borderRadius: BorderRadiusGeometry.circular(40)
                                   ),
                                 ),
-                                onPressed: (){},
+                                onPressed: (){
+                                  Get.back();
+                                },
                                 child: Text("Cancel",
                                   style: TextStyle(
                                     fontSize: 16,
@@ -551,6 +558,7 @@ class _BillCreateState extends State<BillCreate> {
             ),
           ],
         ),
+      ),
       ),
     );
   }
