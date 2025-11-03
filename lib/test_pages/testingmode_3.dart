@@ -1,18 +1,17 @@
-import 'package:cco_test/test_pages/testingmode2_contoller.dart';
+import 'package:cco_test/test_pages/testingmode3_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-class Testingmode2 extends StatefulWidget {
-  const Testingmode2({super.key});
+class Testingmode3 extends StatefulWidget {
+  const Testingmode3({super.key});
 
   @override
-  State<Testingmode2> createState() => _Testingmode2State();
+  State<Testingmode3> createState() => _Testingmode3State();
 }
 
-class _Testingmode2State extends State<Testingmode2> {
+class _Testingmode3State extends State<Testingmode3> {
   @override
   Widget build(BuildContext context) {
-  final Testingmode2controller controller = Get.put(Testingmode2controller());
+    final Testingmode3controller controller = Get.put(Testingmode3controller());
     //final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -58,7 +57,7 @@ class _Testingmode2State extends State<Testingmode2> {
                 left: 100,
                 right: 100,
                 child: Center(
-                  child: Text("Testing Mode",
+                  child: Text("Mock test result",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,

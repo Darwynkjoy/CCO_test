@@ -59,7 +59,7 @@ class __AccountcreateState extends State<Addresscreate> {
                   Container(
                     width: double.infinity,
                     constraints: BoxConstraints(
-                      minHeight: MediaQuery.of(context).size.height - 150, // fills below area when viewed in devices large screen 
+                      minHeight: MediaQuery.of(context).size.height - 130, // fills below area when viewed in devices large screen 
                     ),
                     decoration: const BoxDecoration(
                       color: Colors.white,

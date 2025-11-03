@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class Testingmode2controller extends GetxController {
+class Testingmode3controller extends GetxController {
 
   final List<Map<String, dynamic>> plans = [
   {

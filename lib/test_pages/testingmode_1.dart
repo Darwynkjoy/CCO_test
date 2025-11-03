@@ -10,7 +10,7 @@ class Testingmode1 extends StatefulWidget {
 class _Testingmode1State extends State<Testingmode1> {
   @override
   Widget build(BuildContext context) {
-     //final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SingleChildScrollView(
@@ -53,7 +53,7 @@ class _Testingmode1State extends State<Testingmode1> {
                 left: 100,
                 right: 100,
                 child: Center(
-                  child: Text("Training",
+                  child: Text("Testing Mode",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
@@ -73,7 +73,7 @@ class _Testingmode1State extends State<Testingmode1> {
                     Container(
                       width: double.infinity,
                       constraints: BoxConstraints(
-                        minHeight: MediaQuery.of(context).size.height - 150, // fills below area when viewed in devices large screen 
+                        minHeight: MediaQuery.of(context).size.height - 100, // fills below area when viewed in devices large screen 
                       ),
                       decoration: const BoxDecoration(
                         color: Colors.white,
@@ -95,18 +95,37 @@ class _Testingmode1State extends State<Testingmode1> {
                                 ),
                                 textAlign: TextAlign.justify,
                               ),
-                            Padding(
-                              padding: const EdgeInsets.all(20.0),
-                              child: Text("""The morning breeze carried whispers of forgotten dreams across the sleepy, golden countryside hills. Beneath ancient trees, shadows danced gently, weaving stories only the wind could understand. A curious bird watched silently, its bright eyes glimmering with unspoken wonder and secrets. Somewhere nearby, a river hummed softly, polishing stones smooth with years of patient persistence. Old houses stood proudly, their walls echoing laughter and the scent of warm bread. Children chased butterflies through meadows, unaware of how precious those fleeting hours truly were.""",
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 20.0),
+                                child: Container(
+                                constraints: const BoxConstraints(
+                                  maxHeight: 900,
+                                  maxWidth: 600,  
+                                ),
+                                
+                                child: Text("""The morning breeze carried whispers of forgotten dreams across the sleepy, golden countryside hills. Beneath ancient trees, shadows danced gently, weaving stories only the wind could understand. A curious bird watched silently, its bright eyes glimmering with unspoken wonder and secrets. Somewhere nearby, a river hummed softly, polishing stones smooth with years of patient persistence. Old houses stood proudly, their walls echoing laughter and the scent of warm bread. Children chased butterflies through meadows, unaware of how precious those fleeting hours truly were.""",
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 22,
                                     fontWeight: FontWeight.w500,
                                     color: Colors.black,
                                     fontFamily: 'Montserrat', // font Montserrat
                                   ),
                                   textAlign: TextAlign.justify,
                                 ),
+                                                            ),
+                              ),
+
+                            Padding(
+                              padding: const EdgeInsets.all(40.0),
+                              child: Container(
+                                height: 2,
+                                width: screenWidth * .40,
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+                                color: Colors.black
+                                ),
+                              ),
                             ),
+
                           // Submit button.
                             SizedBox(
                               height: 60, // next button size.

@@ -78,7 +78,7 @@ class _Trainingpage3State extends State<Trainingpage3> {
                   Container(
                     width: double.infinity,
                     constraints: BoxConstraints(
-                      minHeight: MediaQuery.of(context).size.height - 100, // fills below area when viewed in devices large screen error fix
+                      minHeight: MediaQuery.of(context).size.height - 130, // fills below area when viewed in devices large screen error fix
                     ),
                     decoration: const BoxDecoration(
                       color: Colors.white,

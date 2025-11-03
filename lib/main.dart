@@ -2,6 +2,7 @@ import 'package:cco_test/create_account/add_acc.dart';
 import 'package:cco_test/create_account/add_acc_2.dart';
 import 'package:cco_test/create_account/add_acc_bill.dart';
 import 'package:cco_test/test_pages/testingmode_1.dart';
+import 'package:cco_test/test_pages/testingmode_3.dart';
 import 'package:cco_test/training_pages/page_1.dart';
 import 'package:cco_test/training_pages/page_2.dart';
 import 'package:cco_test/training_pages/page_3.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/testing1',
+      initialRoute: '/testing2',
       getPages: [
         GetPage(name: '/createaccount', page: () => Accountcreate()),
         GetPage(name: '/address', page: () => Addresscreate()),
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/training3', page: () => Trainingpage3()),
         GetPage(name: '/testing1', page: () => Testingmode1()),
         GetPage(name: '/testing2', page: () => Testingmode2()),
+        GetPage(name: '/testing3', page: () => Testingmode3()),
   ],
     );
   }
