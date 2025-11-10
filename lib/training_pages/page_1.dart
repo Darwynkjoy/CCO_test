@@ -98,7 +98,7 @@ class _Trainingpage1State extends State<Trainingpage1> {
                                       final plan = controller.subjectColor[index];
                                       return GestureDetector(
                                         onTap: () {
-                                          // ✅ Toggle selection when tapping the container
+                                          //  Toggle selection when tapping the container
                                           if (controller.selectedPlanIndex.value == index) {
                                             controller.selectedPlanIndex.value = -1; // unselect if already selected
                                           } else {
@@ -136,8 +136,8 @@ class _Trainingpage1State extends State<Trainingpage1> {
                                                           color: Colors.black,
                                                           fontFamily: 'Montserrat',
                                                         ),
-                                                        maxLines: 2,                     // ✅ Limit to 2 lines
-                                                        overflow: TextOverflow.clip, // ✅ Add "..." if it still overflows
+                                                        maxLines: 2,
+                                                        overflow: TextOverflow.clip, 
                                                         softWrap: true, 
                                                       ),
                                                     ),

@@ -2,6 +2,7 @@
 import 'package:cco_test/training_pages/trainingpage_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 class Trainingpage3 extends StatefulWidget {
   const Trainingpage3({super.key});
@@ -105,20 +106,35 @@ class _Trainingpage3State extends State<Trainingpage3> {
 
                           Padding(
                             padding:  EdgeInsets.symmetric(vertical: screenHeight * 0.035,),
-                            child: Container(
+                            child: SizedBox(
                               height: screenHeight * 0.35,
                               width: 600,
-                              color: Colors.amber,
-                              child: Center(
-                                child: Text("animation Placeholder",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.normal,
-                                    fontFamily: 'Montserrat',
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
+                              child: Stack(
+                                children: [
+                                  SizedBox(
+                                    height: screenHeight * 0.35,
+                                    width: 600,
+                                    child: Lottie.asset("assets/images/Celebrations Begin.json",fit: BoxFit.fill)),
+                                  Center(
+                                    child: CircleAvatar(
+                                      radius: screenHeight*.1,
+                                      backgroundColor: Color(0xFF96FF94),
+                                      child: CircleAvatar(
+                                        radius: screenHeight*.09,
+                                        backgroundColor: Color(0xFF13A126),
+                                        child: Text('Your result\n01/191',
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white,
+                                          fontFamily: "Montserrat",
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),),
+                                    ),
+                                  )
+                                ],
+                              )
                             ),
                           ),
 
