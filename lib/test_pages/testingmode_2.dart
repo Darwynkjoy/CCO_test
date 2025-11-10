@@ -1,4 +1,4 @@
-import 'package:cco_test/test_pages/testingmode2_contoller.dart';
+import 'package:cco_test/test_pages/testingmode_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,9 +10,11 @@ class Testingmode2 extends StatefulWidget {
 }
 
 class _Testingmode2State extends State<Testingmode2> {
+  final Testingmode2controller controller = Get.put(Testingmode2controller());
+
   @override
   Widget build(BuildContext context) {
-  final Testingmode2controller controller = Get.put(Testingmode2controller());
+
     //final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -306,13 +308,13 @@ class _Testingmode2State extends State<Testingmode2> {
                           Obx(() =>
                             Column(
                               children: List.generate(
-                                controller.plans.length,
+                                controller.answerList.length,
                                 (index) {
-                                  final plan = controller.plans[index];
+                                  final plan = controller.answerList[index];
                                   final bool isSelected = controller.selectedIndex.value == index;
                                   return GestureDetector(
                                     onTap: () {
-                                      controller.selectPlan(index);
+                                      controller.answerSelect(index);
                                     },
                                     child: Container(
                                       height: 110,
@@ -332,7 +334,7 @@ class _Testingmode2State extends State<Testingmode2> {
                                           children: [ 
                                             Expanded(
                                               child: Text(
-                                                plan['description']!,
+                                                plan['answers'],
                                                 style: TextStyle(
                                                   fontSize: 18,
                                                   fontWeight: FontWeight.w500,
@@ -372,151 +374,155 @@ class _Testingmode2State extends State<Testingmode2> {
                             ),
                           ),
 
-                          SizedBox(height: 20,),
+                        SizedBox(height: 40,),
 
-                          SizedBox(
-                            width: 600,
-                            height: 60,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFFCF0829),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadiusGeometry.circular(40)
+                        SizedBox(
+                          width: 600,
+                          height: 60,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(0xFFCF0829),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadiusGeometry.circular(40)
+                              ),
+                            ),
+                            onPressed: (){
+                              Get.toNamed('/testing3');
+                            },
+                            child: Text("Next",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontFamily: "Montserrat",
+                                fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              onPressed: (){},
-                              child: Text("Next",
-                                style: TextStyle(
-                                  fontSize: 16,
+                            ),
+                        ),
+
+                        SizedBox(height: 20,),
+
+                        // end button.
+                        SizedBox(
+                          height: 60, // next button size.
+                          width: 600,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shadowColor: Colors.white,
+                              side: BorderSide(color: Color(0xFF8D99AE)),
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadiusGeometry.circular(40)
+                              ),
+                            ),
+                            onPressed: (){
+                              Get.toNamed('/testing1');
+                            },
+                            child: Text("Cancel",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.black,
+                                fontFamily: "Montserrat",
+                                fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                        ),
+
+                        SizedBox(height: 20,),
+
+                        SizedBox(
+                          width: 600,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                height: 75,
+                                width: 158,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
                                   color: Colors.white,
-                                  fontFamily: "Montserrat",
-                                  fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                          ),
-
-                          SizedBox(height: 20,),
-
-                          // end button.
-                          SizedBox(
-                            height: 60, // next button size.
-                            width: 600,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                shadowColor: Colors.white,
-                                side: BorderSide(color: Color(0xFF8D99AE)),
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadiusGeometry.circular(40)
-                                ),
-                              ),
-                              onPressed: (){},
-                              child: Text("Cancel",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                  fontFamily: "Montserrat",
-                                  fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                          ),
-
-                          SizedBox(height: 20,),
-
-                          SizedBox(
-                            width: 600,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  height: 75,
-                                  width: 158,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withValues(alpha: 100),
-                                        blurRadius: 10,
-                                        offset: Offset(1, 5),
-                                      ),
-                                    ],
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 10),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.only(top: 13.0),
-                                          child: Text("Unanswered \nQuestions",
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.black,
-                                              fontFamily: "Montserrat",
-                                              fontWeight: FontWeight.normal,
-                                              ),
-                                            ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(bottom: 30.0),
-                                          child: Text("5",
-                                            style: TextStyle(
-                                              fontSize: 25,
-                                              color: Colors.black.withAlpha(100),
-                                              fontFamily: "Montserrat",
-                                              fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                        ),
-                                      ],
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withValues(alpha: 100),
+                                      blurRadius: 10,
+                                      offset: Offset(1, 5),
                                     ),
-                                  ),
+                                  ],
                                 ),
-                            
-                                Container(
-                                  height: 75,
-                                  width: 158,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withValues(alpha: 100),
-                                        blurRadius: 10,
-                                        offset: Offset(1, 5),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 13.0),
+                                        child: Text("Unanswered \nQuestions",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.black,
+                                            fontFamily: "Montserrat",
+                                            fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(bottom: 30.0),
+                                        child: Text("5",
+                                          style: TextStyle(
+                                            fontSize: 25,
+                                            color: Colors.black.withAlpha(100),
+                                            fontFamily: "Montserrat",
+                                            fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
                                       ),
                                     ],
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 10),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.only(top: 13.0),
-                                          child: Text("Unanswered \nQuestions",
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.black,
-                                              fontFamily: "Montserrat",
-                                              fontWeight: FontWeight.normal,
-                                              ),
+                                ),
+                              ),
+                          
+                              Container(
+                                height: 75,
+                                width: 158,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withValues(alpha: 100),
+                                      blurRadius: 10,
+                                      offset: Offset(1, 5),
+                                    ),
+                                  ],
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 13.0),
+                                        child: Text("Unanswered \nQuestions",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.black,
+                                            fontFamily: "Montserrat",
+                                            fontWeight: FontWeight.normal,
                                             ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(bottom: 30.0),
-                                          child: Text("10",
-                                            style: TextStyle(
-                                              fontSize: 25,
-                                              color: Colors.black.withAlpha(100),
-                                              fontFamily: "Montserrat",
-                                              fontWeight: FontWeight.bold,
-                                              ),
+                                          ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(bottom: 30.0),
+                                        child: Text("10",
+                                          style: TextStyle(
+                                            fontSize: 25,
+                                            color: Colors.black.withAlpha(100),
+                                            fontFamily: "Montserrat",
+                                            fontWeight: FontWeight.bold,
                                             ),
-                                        ),
+                                          ),
+                                      ),
                                       ],
                                     ),
                                   ),

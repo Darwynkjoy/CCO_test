@@ -1,4 +1,5 @@
-import 'package:cco_test/training_pages/page1_contoller.dart';
+
+import 'package:cco_test/training_pages/trainingpage_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +15,7 @@ class _Trainingpage1State extends State<Trainingpage1> {
   Widget build(BuildContext context) {
     //final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    final Trainingpage1controller controller = Get.put(Trainingpage1controller());
+    final Trainingpagecontroller controller = Get.put(Trainingpagecontroller());
     return Scaffold(
       body: SingleChildScrollView(
         child: GestureDetector(
@@ -92,65 +93,75 @@ class _Trainingpage1State extends State<Trainingpage1> {
         
                                 Column(
                                   children: List.generate(
-                                    controller.plans.length,
+                                    controller.subjectColor.length,
                                     (index) {
-                                      final plan = controller.plans[index];
-                                      return Container(
-                                        height: 94,
-                                        width: 600,
-                                        margin: const EdgeInsets.only(bottom: 20),//spacing between the grid items
-                                        decoration: BoxDecoration(
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Colors.grey.withAlpha(200), // shadow color
-                                              blurRadius: 4,   // softness of the shadow
-                                              offset: Offset(0, 4), // horizontal & vertical offset
-                                            ),
-                                          ],
-                                          borderRadius: BorderRadius.circular(20),
-                                          color: plan['Color'],
-                                        ),
-                                        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                                        child: Column(
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.all(4.0),
-                                                    child: Text(
-                                                      plan['description']!,
-                                                      style: const TextStyle(
-                                                        fontSize: 16,
-                                                        fontWeight: FontWeight.w600,
-                                                        color: Colors.black,
-                                                        fontFamily: 'Montserrat',
+                                      final plan = controller.subjectColor[index];
+                                      return GestureDetector(
+                                        onTap: () {
+                                          // ✅ Toggle selection when tapping the container
+                                          if (controller.selectedPlanIndex.value == index) {
+                                            controller.selectedPlanIndex.value = -1; // unselect if already selected
+                                          } else {
+                                            controller.selectedPlanIndex.value = index; // select this container
+                                          }
+                                        },
+                                        child: Obx(() => Container(
+                                          height: 94,
+                                          width: 600,
+                                          margin: const EdgeInsets.only(bottom: 20),//spacing between the grid items
+                                          decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey.withAlpha(200), // shadow color
+                                                blurRadius: 4,   // softness of the shadow
+                                                offset: Offset(0, 4), // horizontal & vertical offset
+                                              ),
+                                            ],
+                                            borderRadius: BorderRadius.circular(20),
+                                            color: plan['Color'],
+                                          ),
+                                          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding: const EdgeInsets.all(4.0),
+                                                      child: Text(
+                                                        plan['description']!,
+                                                        style: const TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight: FontWeight.w600,
+                                                          color: Colors.black,
+                                                          fontFamily: 'Montserrat',
+                                                        ),
+                                                        maxLines: 2,                     // ✅ Limit to 2 lines
+                                                        overflow: TextOverflow.clip, // ✅ Add "..." if it still overflows
+                                                        softWrap: true, 
                                                       ),
-                                                      maxLines: 2,                     // ✅ Limit to 2 lines
-                                                      overflow: TextOverflow.clip, // ✅ Add "..." if it still overflows
-                                                      softWrap: true, 
                                                     ),
                                                   ),
-                                                ),
-                                                Obx(() => Transform.scale(
-                                                  scale: 1.8,
-                                                  child: Checkbox(
-                                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                                                    side: const BorderSide(color: Color(0xFF7F7F7F), width: 0.5),
-                                                    checkColor: Color(0xFF27BB2E),
-                                                    activeColor: Colors.white,
-                                                    fillColor: WidgetStatePropertyAll(Colors.white),
-                                                    value: controller.selectedPlanIndex.value == index,
-                                                    onChanged: (bool? newValue) {
-                                                      controller.selectedPlanIndex.value =
-                                                          newValue == true ? index : -1;
-                                                    },
+                                                  Transform.scale(
+                                                    scale: 1.8,
+                                                    child: Checkbox(
+                                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                                                      side: const BorderSide(color: Color(0xFF7F7F7F), width: 0.5),
+                                                      checkColor: Color(0xFF27BB2E),
+                                                      activeColor: Colors.white,
+                                                      fillColor: WidgetStatePropertyAll(Colors.white),
+                                                      value: controller.selectedPlanIndex.value == index,
+                                                      onChanged: (bool? newValue) {
+                                                        controller.selectedPlanIndex.value =
+                                                            newValue == true ? index : -1;
+                                                      },
                                                   ),
-                                                )),
+                                                )
                                               ],
                                             ),
                                           ],
                                         ),
+                                      )),
                                       );
                                     },
                                   ),

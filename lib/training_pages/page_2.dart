@@ -1,4 +1,4 @@
-import 'package:cco_test/training_pages/page2_controller.dart';
+import 'package:cco_test/training_pages/trainingpage_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -169,9 +169,9 @@ class _Trainingpage2State extends State<Trainingpage2> {
                                               Obx(() =>
                                                 Column(
                                                   children: List.generate(
-                                                    controller.plans.length,
+                                                    controller.subjectSelection.length,
                                                     (index) {
-                                                      final plan = controller.plans[index];
+                                                      final plan = controller.subjectSelection[index];
                                                       final bool isSelected = controller.selectedIndex.value == index;
                                                       return GestureDetector(
                                                         onTap: () {
@@ -239,10 +239,9 @@ class _Trainingpage2State extends State<Trainingpage2> {
                                                           color: Colors.black,
                                                           fontFamily: 'Montserrat',
                                                         ),
-                                                        maxLines: 2,                     // ✅ Limit to 2 lines
-                                                        overflow: TextOverflow.clip, // ✅ Add "..." if it still overflows
-                                                        softWrap: true, 
-                                                                                                            ),
+                                                        maxLines: 2,
+                                                        overflow: TextOverflow.clip,
+                                                        ),
                                                       ),
                                                     ]
                                                   ),

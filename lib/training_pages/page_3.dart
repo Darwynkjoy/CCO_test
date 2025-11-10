@@ -1,4 +1,5 @@
-import 'package:cco_test/training_pages/page3_controller.dart';
+
+import 'package:cco_test/training_pages/trainingpage_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -123,9 +124,9 @@ class _Trainingpage3State extends State<Trainingpage3> {
 
                           Column(
                             children: List.generate(
-                              controller.plans.length,
+                              controller.subjectResult.length,
                               (index) {
-                                final plan = controller.plans[index];
+                                final plan = controller.subjectResult[index];
                                 return Container(
                                   height: 62,
                                   width: 600,

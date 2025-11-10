@@ -138,9 +138,9 @@ class _Testingmode1State extends State<Testingmode1> {
                                   ),
                                 ),
                                 onPressed: (){
-                                  Get.toNamed('/training2');
+                                  Get.toNamed('/testing2');
                                 },
-                                child: Text("Submit",
+                                child: Text("Start Exam",
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: Colors.white,
@@ -164,7 +164,7 @@ class _Testingmode1State extends State<Testingmode1> {
                                   ),
                                 ),
                                 onPressed: (){},
-                                child: Text("Help",
+                                child: Text("Previous Exam Results",
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: Colors.white,

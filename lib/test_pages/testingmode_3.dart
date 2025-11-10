@@ -1,4 +1,4 @@
-import 'package:cco_test/test_pages/testingmode3_controller.dart';
+import 'package:cco_test/test_pages/testingmode_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class Testingmode3 extends StatefulWidget {
@@ -9,9 +9,11 @@ class Testingmode3 extends StatefulWidget {
 }
 
 class _Testingmode3State extends State<Testingmode3> {
+  final Testingmode3controller controller = Get.put(Testingmode3controller());
+
   @override
   Widget build(BuildContext context) {
-    final Testingmode3controller controller = Get.put(Testingmode3controller());
+
     //final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -54,8 +56,8 @@ class _Testingmode3State extends State<Testingmode3> {
         
               Positioned(
                 top: 60,
-                left: 100,
-                right: 100,
+                left: 90,
+                right: 90,
                 child: Center(
                   child: Text("Mock test result",
                           style: TextStyle(
@@ -94,204 +96,77 @@ class _Testingmode3State extends State<Testingmode3> {
                           Container(
                             width: 600,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withValues(alpha: 100),
-                                  blurRadius: 10,
-                                  offset: Offset(1, 5),
-                                ),
-                              ],
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Column(
-                                children: [
-
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text("Remaining Time",
-                                      style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w600,
-                                            color: Colors.black,
-                                            fontFamily: "Montserrat",
-                                          ),
-                                        ), 
-                                      Container(
-                                        width: 80,
-                                        height: 25,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(10),
-                                          color: Color(0xFF6AFF6A),
-                                        ),
-                                        child: Center(
-                                          child: Text("ONLINE",
-                                            style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: Colors.white,
-                                                  fontFamily: "Montserrat",
-                                                ),
-                                             ),
-                                        ), 
-                                      )
-
-                                    ],
-                                  ),
-
-                                  SizedBox(height: 10,),
-
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-
-                                      Column(
-                                        spacing: 0,
-                                        children: [
-                                          Text("2",
-                                            style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: Color(0xFF9810FA),
-                                                  fontFamily: "Montserrat",
-                                                ),
-                                             ),
-                                          Text("hour",
-                                            style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.normal,
-                                                  color: Color(0xFF666666),
-                                                  fontFamily: "Montserrat",
-                                                ),
-                                             ),
-                                        ],
-                                      ),
-
-                                      Container(
-                                        height: 30,
-                                        width: 1,
-                                        color: Color(0xFF666666),
-                                      ),
-
-                                      Column(
-                                        spacing: 0,
-                                        children: [
-                                          Text("25",
-                                            style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: Color(0xFFF54A00),
-                                                  fontFamily: "Montserrat",
-                                                ),
-                                             ),
-                                          Text("minutes",
-                                            style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.normal,
-                                                  color: Color(0xFF666666),
-                                                  fontFamily: "Montserrat",
-                                                ),
-                                             ),
-                                        ],
-                                      ),
-
-                                      Container(
-                                        height: 30,
-                                        width: 1,
-                                        color: Color(0xFF666666),
-                                      ),
-
-                                      Column(
-                                        spacing: 0,
-                                        children: [
-                                          Text("32",
-                                            style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: Color(0xFF00A63E),
-                                                  fontFamily: "Montserrat",
-                                                ),
-                                             ),
-                                          Text("seconds",
-                                            style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.normal,
-                                                  color: Color(0xFF666666),
-                                                  fontFamily: "Montserrat",
-                                                ),
-                                             ),
-                                        ],
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-
-                          SizedBox(height: 30,),
-
-                          Container(
-                            width: 600,
-                            decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey.withValues(alpha: 100),
                                   blurRadius: 10,
-                                  offset: Offset(1, 5),
+                                  offset: Offset(1, 1),
                                 ),
                               ],
                             ),
                             child: Card(
-                              color: Color(0xFFDDDDDD),
+                              color: Color(0xFFFFE7E7),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Padding(
-                                    padding: EdgeInsets.all(20.0),
-                                    child: Center(
-                                      child: Text(
-                                        "Question 01/192",
-                                        style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black,
-                                          fontFamily: "Montserrat",
-                                        ),
+                                  Container(
+                                    width: 600,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(20),
+                                      ),
+                                      color: Colors.white
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Center(
+                                            child: Text(
+                                              "Sorry better luck next time",
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                                color: Color(0xFFCF0829),
+                                                fontFamily: "Montserrat",
+                                              ),
+                                              textAlign: TextAlign.justify,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
-
-                                  Container(
-                                    decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.vertical(
-                                        bottom: Radius.circular(20),
-                                      ),
-                                      color: Colors.white,
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: const [
+                                  Padding(
+                                    padding: EdgeInsets.all(20.0),
+                                    child: Center(
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children:[ 
                                           Text(
-                                            "In order to protect the title agan appean appear here and the height will automatically adjust asar here and the height will automatically adjust asainst a mechanics lien, an owner could post and record which of the following document an appear here and the height will automatically adjust as",
+                                            "Overall percentage",
                                             style: TextStyle(
                                               fontSize: 20,
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              color: Color(0xFF595959),
                                               fontFamily: "Montserrat",
                                             ),
-                                            textAlign: TextAlign.justify,
-                                          ),
-                                        ],
+                                        ),
+                                        Text(
+                                            "0%",
+                                            style: TextStyle(
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.normal,
+                                              color:  Colors.black,
+                                              fontFamily: "Montserrat",
+                                            ),
+                                        ),
+                                        ]
                                       ),
                                     ),
                                   ),
@@ -302,76 +177,73 @@ class _Testingmode3State extends State<Testingmode3> {
 
                           SizedBox(height: 40,),
 
-                          Obx(() =>
-                            Column(
-                              children: List.generate(
-                                controller.plans.length,
-                                (index) {
-                                  final plan = controller.plans[index];
-                                  final bool isSelected = controller.selectedIndex.value == index;
-                                  return GestureDetector(
-                                    onTap: () {
-                                      controller.selectPlan(index);
-                                    },
-                                    child: Container(
-                                      height: 110,
-                                      width: 600,
-                                      margin: const EdgeInsets.only(bottom: 20),//spacing between the grid items
+                          SizedBox(
+                            width: 600,
+                            child: 
+                              ListView.separated(                     
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, item) {
+                                  final texts = controller.subjectList[item];
+                                    return Container(
+                                      height: 70,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: isSelected ? Color(0xFFDAFFE0) : Colors.white,
-                                        border: Border.all(
-                                          color: isSelected ? Color(0xFFDAFFE0) : Color(0xFF606060).withAlpha(100),
-                                          width: 1,
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: Colors.white,
+                                        boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withValues(alpha: 100),
+                                        blurRadius: 5,
+                                        offset: Offset(1, 1),
                                         ),
+                                      ],
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsets.all(10.0),
                                         child: Row(
-                                          children: [ 
+                                          children: [
                                             Expanded(
                                               child: Text(
-                                                plan['description']!,
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w500,
-                                                  color:Colors.black,
-                                                  fontFamily: 'Montserrat',
-                                                ),
-                                                overflow: TextOverflow.clip,
-                                                textAlign: TextAlign.justify,
+                                              texts['subjects'],
+                                              style: TextStyle(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.normal,
+                                                color:Colors.black,
+                                                fontFamily: 'Montserrat',
                                               ),
+                                              overflow: TextOverflow.clip,
                                             ),
-
-                                            SizedBox(width: 10,),
-
-                                            Obx(() => 
-                                              Transform.scale(
-                                                scale: 1.6,
-                                                child: Checkbox(
-                                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                                                  side: BorderSide(color: Color(0xFF606060).withAlpha(100), width: 0.5),
-                                                  checkColor: Colors.white,
-                                                  activeColor: Color(0xFF27BB2E),
-                                                  value: controller.selectedIndex.value == index,
-                                                  onChanged: (bool? newValue) {
-                                                    controller.selectedIndex.value =
-                                                        newValue == true ? index : -1;
-                                                  },
+                                          ),
+                                            Container(
+                                              height: 48,
+                                              width: 52,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(5),
+                                                color: Color(0xFFABC2E3)
+                                              ),
+                                              child: Center(
+                                                child: Text("0%",
+                                                  style: TextStyle(
+                                                    fontSize: 24,
+                                                    fontWeight: FontWeight.normal,
+                                                    color:Colors.black,
+                                                    fontFamily: 'Montserrat',
+                                                  ),
+                                                  overflow: TextOverflow.clip,
                                                 ),
-                                              )
-                                            ),
+                                              ),
+                                            )
                                           ],
                                         ),
                                       ),
-                                    ),
-                                  );
-                                },
+                                    );
+                                  },
+                                separatorBuilder: (context, item) => SizedBox(height: 20),
+                                itemCount: controller.subjectList.length,
                               ),
                             ),
-                          ),
 
-                          SizedBox(height: 20,),
+                          SizedBox(height: 40,),
 
                           SizedBox(
                             width: 600,
@@ -384,7 +256,7 @@ class _Testingmode3State extends State<Testingmode3> {
                                 ),
                               ),
                               onPressed: (){},
-                              child: Text("Next",
+                              child: Text("Review missed questions",
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.white,
@@ -410,8 +282,10 @@ class _Testingmode3State extends State<Testingmode3> {
                                   borderRadius: BorderRadiusGeometry.circular(40)
                                 ),
                               ),
-                              onPressed: (){},
-                              child: Text("Cancel",
+                              onPressed: (){
+                                Get.toNamed('testing1');
+                              },
+                              child: Text("Close",
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.black,
@@ -422,108 +296,6 @@ class _Testingmode3State extends State<Testingmode3> {
                               ),
                           ),
 
-                          SizedBox(height: 20,),
-
-                          SizedBox(
-                            width: 600,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  height: 75,
-                                  width: 158,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withValues(alpha: 100),
-                                        blurRadius: 10,
-                                        offset: Offset(1, 5),
-                                      ),
-                                    ],
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 10),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.only(top: 13.0),
-                                          child: Text("Unanswered \nQuestions",
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.black,
-                                              fontFamily: "Montserrat",
-                                              fontWeight: FontWeight.normal,
-                                              ),
-                                            ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(bottom: 30.0),
-                                          child: Text("5",
-                                            style: TextStyle(
-                                              fontSize: 25,
-                                              color: Colors.black.withAlpha(100),
-                                              fontFamily: "Montserrat",
-                                              fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                            
-                                Container(
-                                  height: 75,
-                                  width: 158,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withValues(alpha: 100),
-                                        blurRadius: 10,
-                                        offset: Offset(1, 5),
-                                      ),
-                                    ],
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 10),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.only(top: 13.0),
-                                          child: Text("Unanswered \nQuestions",
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.black,
-                                              fontFamily: "Montserrat",
-                                              fontWeight: FontWeight.normal,
-                                              ),
-                                            ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(bottom: 30.0),
-                                          child: Text("10",
-                                            style: TextStyle(
-                                              fontSize: 25,
-                                              color: Colors.black.withAlpha(100),
-                                              fontFamily: "Montserrat",
-                                              fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                            
-                              ],
-                            ),
-                          )
                         ],
                       ),
                     ),
