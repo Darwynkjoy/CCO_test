@@ -104,38 +104,35 @@ class _Trainingpage3State extends State<Trainingpage3> {
                             textAlign: TextAlign.center,
                           ),
 
-                          Padding(
-                            padding:  EdgeInsets.symmetric(vertical: screenHeight * 0.035,),
-                            child: SizedBox(
-                              height: screenHeight * 0.35,
-                              width: 600,
-                              child: Stack(
-                                children: [
-                                  SizedBox(
-                                    height: screenHeight * 0.35,
-                                    width: 600,
-                                    child: Lottie.asset("assets/images/Celebrations Begin.json",fit: BoxFit.fill)),
-                                  Center(
+                          SizedBox(
+                            height: screenHeight * 0.35,
+                            width: 600,
+                            child: Stack(
+                              children: [
+                                SizedBox(
+                                  height: screenHeight * 0.35,
+                                  width: 600,
+                                  child: Lottie.asset("assets/images/Celebrations Begin.json",fit: BoxFit.fill)),
+                                Center(
+                                  child: CircleAvatar(
+                                    radius: screenHeight*.1,
+                                    backgroundColor: Color(0xFF96FF94),
                                     child: CircleAvatar(
-                                      radius: screenHeight*.1,
-                                      backgroundColor: Color(0xFF96FF94),
-                                      child: CircleAvatar(
-                                        radius: screenHeight*.09,
-                                        backgroundColor: Color(0xFF13A126),
-                                        child: Text('Your result\n01/191',
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.white,
-                                          fontFamily: "Montserrat",
-                                        ),
-                                        textAlign: TextAlign.center,
-                                      ),),
-                                    ),
-                                  )
-                                ],
-                              )
-                            ),
+                                      radius: screenHeight*.09,
+                                      backgroundColor: Color(0xFF13A126),
+                                      child: Text('Your result\n01/191',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.white,
+                                        fontFamily: "Montserrat",
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),),
+                                  ),
+                                )
+                              ],
+                            )
                           ),
 
                           Column(

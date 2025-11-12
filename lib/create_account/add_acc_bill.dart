@@ -132,7 +132,7 @@ class _BillCreateState extends State<BillCreate> {
                                             scale: 2.0,
                                             child: Checkbox(
                                               side: const BorderSide(color: Colors.white, width: 0.5),
-                                              checkColor: Colors.black,
+                                              checkColor: Colors.lightGreenAccent,
                                               activeColor: Colors.white,
                                               value: controller.selectedPlanIndex.value == index,
                                               onChanged: (bool? newValue) {
