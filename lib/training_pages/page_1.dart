@@ -1,5 +1,6 @@
 
 import 'package:cco_test/training_pages/trainingpage_contoller.dart';
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -59,13 +60,30 @@ class _Trainingpage1State extends State<Trainingpage1> {
                 child: Center(
                   child: Text("Training",
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
+                            fontSize: ResponsiveFont.getFontSize(context, 20),
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontFamily: 'Montserrat', // font Montserrat
                             ),
                           ),
                 ),
+              ),
+
+              // Back Button
+              Positioned(
+                top: 50,
+                right: 20,
+                child:
+                    IconButton(
+                      onPressed: () {},
+                      style: IconButton.styleFrom(
+                        backgroundColor: Colors.white,
+                      ),
+                      icon: Icon(
+                        Icons.help_outline_rounded,
+                        color: Colors.black,
+                      ),
+                    ),
               ),
           
               //  White Container with rounded top corners
@@ -95,18 +113,23 @@ class _Trainingpage1State extends State<Trainingpage1> {
                                   children: List.generate(
                                     controller.subjectColor.length,
                                     (index) {
+                                      // Responsive height
+                                      double containerHeight;
+                                      if (screenHeight < 700) {
+                                        containerHeight = screenHeight * 0.15;
+                                      } else if (screenHeight < 1000) {
+                                        containerHeight = screenHeight * 0.12;
+                                      } else {
+                                        containerHeight = screenHeight * 0.09; // For iPads & tablets
+                                      }
+
                                       final plan = controller.subjectColor[index];
                                       return GestureDetector(
                                         onTap: () {
-                                          //  Toggle selection when tapping the container
-                                          if (controller.selectedPlanIndex.value == index) {
-                                            controller.selectedPlanIndex.value = -1; // unselect if already selected
-                                          } else {
-                                            controller.selectedPlanIndex.value = index; // select this container
-                                          }
+                                          Get.toNamed('/training2');
                                         },
-                                        child: Obx(() => Container(
-                                          height: 94,
+                                        child: Container(
+                                          height: containerHeight,
                                           width: 600,
                                           margin: const EdgeInsets.only(bottom: 20),//spacing between the grid items
                                           decoration: BoxDecoration(
@@ -126,128 +149,29 @@ class _Trainingpage1State extends State<Trainingpage1> {
                                               Row(
                                                 children: [
                                                   Expanded(
-                                                    child: Padding(
-                                                      padding: const EdgeInsets.all(4.0),
-                                                      child: Text(
-                                                        plan['description']!,
-                                                        style: const TextStyle(
-                                                          fontSize: 16,
-                                                          fontWeight: FontWeight.w600,
-                                                          color: Colors.black,
-                                                          fontFamily: 'Montserrat',
-                                                        ),
-                                                        maxLines: 2,
-                                                        overflow: TextOverflow.clip, 
-                                                        softWrap: true, 
+                                                    child: Text(
+                                                      plan['description']!,
+                                                      style: TextStyle(
+                                                        fontSize: ResponsiveFont.getFontSize(context, 15),
+                                                        fontWeight: FontWeight.w600,
+                                                        color: Colors.black,
+                                                        fontFamily: 'Montserrat',
                                                       ),
+                                                      maxLines: 2,
+                                                      overflow: TextOverflow.clip, 
+                                                      softWrap: true, 
                                                     ),
                                                   ),
-                                                  Transform.scale(
-                                                    scale: 1.8,
-                                                    child: Checkbox(
-                                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                                                      side: const BorderSide(color: Color(0xFF7F7F7F), width: 0.5),
-                                                      checkColor: Color(0xFF27BB2E),
-                                                      activeColor: Colors.white,
-                                                      fillColor: WidgetStatePropertyAll(Colors.white),
-                                                      value: controller.selectedPlanIndex.value == index,
-                                                      onChanged: (bool? newValue) {
-                                                        controller.selectedPlanIndex.value =
-                                                            newValue == true ? index : -1;
-                                                      },
-                                                  ),
-                                                )
                                               ],
                                             ),
                                           ],
                                         ),
-                                      )),
+                                      )
                                       );
                                     },
                                   ),
                                 ),
-        
-                                SizedBox(
-                                  height: 50,
-                                ),
-        
-                                
-                                
-                              // Submit button.
-                                SizedBox(
-                                  height: 60, // next button size.
-                                  width: 500,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.red,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadiusGeometry.circular(40)
-                                      ),
-                                    ),
-                                    onPressed: (){
-                                      Get.toNamed('/training2');
-                                    },
-                                    child: Text("Submit",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        fontFamily: "Montserrat",
-                                        fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                ),
-        
-                              SizedBox(height: 30,),
-        
-                              SizedBox(
-                                  height: 60, // next button size.
-                                  width: 500,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.red,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadiusGeometry.circular(40)
-                                      ),
-                                    ),
-                                    onPressed: (){},
-                                    child: Text("Help",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        fontFamily: "Montserrat",
-                                        fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                ),
-        
-                              SizedBox(height: 30,),
-        
-                              // Cancel button.
-                              SizedBox(
-                                height: 60, // next button size.
-                                width: 500,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    shadowColor: Colors.white,
-                                    side: BorderSide(color: Color(0xFF8D99AE)),
-                                    backgroundColor: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadiusGeometry.circular(40)
-                                    ),
-                                  ),
-                                  onPressed: (){},
-                                  child: Text("Cancel",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.black,
-                                      fontFamily: "Montserrat",
-                                      fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                              ),
+                              
                           ],
                         ),
                       ),

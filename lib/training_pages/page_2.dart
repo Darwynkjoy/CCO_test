@@ -1,4 +1,5 @@
 import 'package:cco_test/training_pages/trainingpage_contoller.dart';
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,11 +11,27 @@ class Trainingpage2 extends StatefulWidget {
 }
 
 class _Trainingpage2State extends State<Trainingpage2> {
+  
   @override
   Widget build(BuildContext context) {
     final Trainingpage2controller controller = Get.put(Trainingpage2controller());
-    final screenWidth = MediaQuery.of(context).size.width;
+    //final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+
+    //dinamic container height for the question box
+    double containerHeight;
+    double answerBox;
+      if (screenHeight < 800) {
+        containerHeight = screenHeight * 1.15;
+        answerBox = screenHeight * 0.08;
+      } else if (screenHeight < 1000) {
+        containerHeight = screenHeight * 1;
+        answerBox = screenHeight * 0.07;
+      } else {
+        containerHeight = screenHeight * 0.74; // For iPads & tablets
+        answerBox = screenHeight * 0.05;
+      }
+
     return Scaffold(
       body: SingleChildScrollView(
         child: GestureDetector(
@@ -60,8 +77,8 @@ class _Trainingpage2State extends State<Trainingpage2> {
                 child: Center(
                   child: Text("Training",
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
+                            fontSize: ResponsiveFont.getFontSize(context, 20),
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontFamily: 'Montserrat', // font Montserrat
                             ),
@@ -88,14 +105,14 @@ class _Trainingpage2State extends State<Trainingpage2> {
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsGeometry.symmetric(horizontal:  20,vertical:  30),
+                      padding: EdgeInsetsGeometry.symmetric(horizontal:  10,vertical:  30),
                       child: Column(
                         children: [
 
                           Text("Property Ownership and Land Use Controls and Regulations",
                             style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
+                              fontSize: ResponsiveFont.getFontSize(context, 18),
+                              fontWeight: FontWeight.bold,
                               color: Color(0xFFCF0829),
                               fontFamily: "Montserrat",
                             ),
@@ -105,9 +122,8 @@ class _Trainingpage2State extends State<Trainingpage2> {
                           SizedBox(height: 20,), // space between heading and card.
 
                           Container(
-                              //height: screenheight * 0.65,
-                              height: 650,
-                              width: 550,
+                              height:  containerHeight,
+                              width: 600,
                               decoration: BoxDecoration(
                                 boxShadow: [
                                   // the card shadow
@@ -129,8 +145,8 @@ class _Trainingpage2State extends State<Trainingpage2> {
                                       padding: const EdgeInsets.all(20.0),
                                       child: Text("Question 01/192",
                                         style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
+                                          fontSize: ResponsiveFont.getFontSize(context, 16),
+                                          fontWeight: FontWeight.bold,
                                           color: Colors.black,
                                           fontFamily: "Montserrat",
                                         ),
@@ -154,7 +170,7 @@ class _Trainingpage2State extends State<Trainingpage2> {
 
                                               Text("In order to protect the title against a mechanics lien, an owner could post and record which of the following documents",
                                               style: TextStyle(
-                                                fontSize: 16,
+                                                fontSize: ResponsiveFont.getFontSize(context, 16),
                                                 fontWeight: FontWeight.w500,
                                                 color: Colors.black,
                                                 fontFamily: "Montserrat",
@@ -162,9 +178,7 @@ class _Trainingpage2State extends State<Trainingpage2> {
                                                 textAlign: TextAlign.justify,
                                               ),
 
-                                              SizedBox(
-                                                height: 20,
-                                              ),
+                                              Spacer(),
 
                                               Obx(() =>
                                                 Column(
@@ -178,7 +192,7 @@ class _Trainingpage2State extends State<Trainingpage2> {
                                                           controller.selectPlan(index);
                                                         },
                                                         child: Container(
-                                                          height: 60,
+                                                          height: answerBox,
                                                           width: 600,
                                                           margin: const EdgeInsets.only(bottom: 20),//spacing between the grid items
                                                           decoration: BoxDecoration(
@@ -193,7 +207,7 @@ class _Trainingpage2State extends State<Trainingpage2> {
                                                             child: Text(
                                                               plan['description']!,
                                                               style: TextStyle(
-                                                                fontSize: 16,
+                                                                fontSize: ResponsiveFont.getFontSize(context, 16),
                                                                 fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
                                                                 color: isSelected ? Colors.white : Colors.black,
                                                                 fontFamily: 'Montserrat',
@@ -207,7 +221,7 @@ class _Trainingpage2State extends State<Trainingpage2> {
                                                 ),
                                               ),
 
-                                              Spacer(),
+                                              SizedBox(height: 20,),
 
                                               Container(
                                                 alignment: Alignment.center,
@@ -234,7 +248,7 @@ class _Trainingpage2State extends State<Trainingpage2> {
                                                       Expanded(
                                                         child: Text("Watch the video for more details",
                                                         style: TextStyle(
-                                                          fontSize: 16,
+                                                          fontSize: ResponsiveFont.getFontSize(context, 16),
                                                           fontWeight: FontWeight.w500,
                                                           color: Colors.black,
                                                           fontFamily: 'Montserrat',
@@ -247,6 +261,62 @@ class _Trainingpage2State extends State<Trainingpage2> {
                                                   ),
                                                 ),
                                               ),
+
+                                              SizedBox(height: 20,),
+                                              
+                                              SizedBox(
+                                                width: double.infinity,
+                                                height: 60,
+                                                child: ElevatedButton(
+                                                  style: ElevatedButton.styleFrom(
+                                                    shadowColor: Colors.white,
+                                                    side: BorderSide(color: Color(0xFF8D99AE)),
+                                                    backgroundColor: Color(0xFFCF0829),
+                                                    shape: RoundedRectangleBorder(
+                                                      borderRadius: BorderRadiusGeometry.circular(40)
+                                                    ),
+                                                  ),
+                                                  onPressed: (){
+                                                    Get.toNamed('/training3');
+                                                  },
+                                                  child: Text("Next",
+                                                    style: TextStyle(
+                                                      fontSize: ResponsiveFont.getFontSize(context, 16),
+                                                      color: Colors.white,
+                                                      fontFamily: "Montserrat",
+                                                      fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                  ),
+                                              ), // space between card and buttons.
+
+                                              SizedBox(height: 20,),
+
+                                              SizedBox(
+                                                width:  double.infinity,
+                                                height: 60,
+                                                child: ElevatedButton(
+                                                  style: ElevatedButton.styleFrom(
+                                                    shadowColor: Colors.white,
+                                                    side: BorderSide(color: Color(0xFF8D99AE)),
+                                                    backgroundColor: Colors.white,
+                                                    shape: RoundedRectangleBorder(
+                                                      borderRadius: BorderRadiusGeometry.circular(40)
+                                                    ),
+                                                  ),
+                                                  onPressed: (){
+                                                    Get.back();
+                                                  },
+                                                  child: Text("End",
+                                                    style: TextStyle(
+                                                      fontSize: ResponsiveFont.getFontSize(context, 16),
+                                                      color: Colors.black,
+                                                      fontFamily: "Montserrat",
+                                                      fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                  ),
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -257,63 +327,7 @@ class _Trainingpage2State extends State<Trainingpage2> {
                               )
                             ),
 
-                            SizedBox(height: 30,), // space between card and buttons.
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                               SizedBox(
-                                  width: screenWidth * 0.4,
-                                  height: 60,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      shadowColor: Colors.white,
-                                      side: BorderSide(color: Color(0xFF8D99AE)),
-                                      backgroundColor: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadiusGeometry.circular(40)
-                                      ),
-                                    ),
-                                    onPressed: (){
-                                      Get.back();
-                                    },
-                                    child: Text("End",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.black,
-                                        fontFamily: "Montserrat",
-                                        fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                ),
-                                SizedBox(
-                                  width: screenWidth * 0.4,
-                                  height: 60,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      shadowColor: Colors.white,
-                                      side: BorderSide(color: Color(0xFF8D99AE)),
-                                      backgroundColor: Color(0xFFCF0829),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadiusGeometry.circular(40)
-                                      ),
-                                    ),
-                                    onPressed: (){
-                                      Get.toNamed('/training3');
-                                    },
-                                    child: Text("Next",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        fontFamily: "Montserrat",
-                                        fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                ),
-                              ],
-                            )
+                            
                         ],
                       ),
                     ),

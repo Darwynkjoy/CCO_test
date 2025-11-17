@@ -1,5 +1,6 @@
 
 import 'package:cco_test/training_pages/trainingpage_contoller.dart';
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -17,6 +18,21 @@ class _Trainingpage3State extends State<Trainingpage3> {
   final Trainingpage3controller controller = Get.put(Trainingpage3controller());
     //final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+
+    //dinamic container height for the question box
+    double containerHeight;
+    double answerBox;
+      if (screenHeight < 800) {
+        containerHeight = screenHeight * .09;
+        answerBox = screenHeight * 0.08;
+      } else if (screenHeight < 1000) {
+        containerHeight = screenHeight * 0.08;
+        answerBox = screenHeight * 0.07;
+      } else {
+        containerHeight = screenHeight * 0.06; // For iPads & tablets
+        answerBox = screenHeight * 0.05;
+      }
+
     return Scaffold(
       body: SingleChildScrollView(
         child: GestureDetector(
@@ -62,8 +78,8 @@ class _Trainingpage3State extends State<Trainingpage3> {
                 child: Center(
                   child: Text("Training",
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
+                            fontSize: ResponsiveFont.getFontSize(context, 20),
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontFamily: 'Montserrat', // font Montserrat
                             ),
@@ -96,8 +112,8 @@ class _Trainingpage3State extends State<Trainingpage3> {
 
                           Text("Property Ownership and Land Use Controls and Regulations",
                             style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
+                              fontSize: ResponsiveFont.getFontSize(context, 18),
+                              fontWeight: FontWeight.bold,
                               color: Color(0xFFCF0829),
                               fontFamily: "Montserrat",
                             ),
@@ -122,8 +138,8 @@ class _Trainingpage3State extends State<Trainingpage3> {
                                       backgroundColor: Color(0xFF13A126),
                                       child: Text('Your result\n01/191',
                                       style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600,
+                                        fontSize: ResponsiveFont.getFontSize(context, 18),
+                                        fontWeight: FontWeight.bold,
                                         color: Colors.white,
                                         fontFamily: "Montserrat",
                                       ),
@@ -141,9 +157,9 @@ class _Trainingpage3State extends State<Trainingpage3> {
                               (index) {
                                 final plan = controller.subjectResult[index];
                                 return Container(
-                                  height: 62,
+                                  height: containerHeight,
                                   width: 600,
-                                  margin: EdgeInsets.only(bottom: screenHeight * 0.035,),//spacing between the grid items
+                                  margin: EdgeInsets.only(bottom: screenHeight * 0.025,),//spacing between the grid items
                                   decoration: BoxDecoration(
                                     color: plan['Color'],
                                     borderRadius: BorderRadius.circular(12),
@@ -156,7 +172,7 @@ class _Trainingpage3State extends State<Trainingpage3> {
                                         child: Text(
                                           plan['description']!,
                                           style: TextStyle(
-                                            fontSize: 16,
+                                            fontSize: ResponsiveFont.getFontSize(context, 16),
                                             fontWeight: FontWeight.normal,
                                             fontFamily: 'Montserrat',
                                           ),
@@ -167,8 +183,8 @@ class _Trainingpage3State extends State<Trainingpage3> {
                                       Padding(
                                         padding: const EdgeInsets.symmetric(horizontal: 3.0),
                                         child: Container(
-                                          height: 48,
-                                          width: 60,
+                                          height: answerBox,
+                                          width: answerBox * 1.2,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             boxShadow: [
@@ -183,7 +199,7 @@ class _Trainingpage3State extends State<Trainingpage3> {
                                           child: Center(
                                             child: Text(plan['result'],
                                               style: TextStyle(
-                                                fontSize: 25,
+                                                fontSize: ResponsiveFont.getFontSize(context, 25),
                                                 fontWeight: FontWeight.normal,
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
@@ -215,7 +231,7 @@ class _Trainingpage3State extends State<Trainingpage3> {
                               onPressed: (){},
                               child: Text("Close",
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: ResponsiveFont.getFontSize(context, 16),
                                   color: Colors.white,
                                   fontFamily: "Montserrat",
                                   fontWeight: FontWeight.bold,
