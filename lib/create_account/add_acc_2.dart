@@ -1,4 +1,5 @@
 import 'package:cco_test/create_account/add_acc_conroller.dart';
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -78,14 +79,14 @@ class __AccountcreateState extends State<Addresscreate> {
                             padding: const EdgeInsets.only(
                                 bottom: 10), // for spacing with the next widget
                             child: Container(
-                              constraints: const BoxConstraints(
+                              constraints:  BoxConstraints(
                                 maxHeight: 250,
                                 maxWidth: 400,
                                 minHeight: 170,
                                 minWidth: 220,
                               ),
-                              height: screenHeight * 0.19,
-                              width: screenWidth * 0.7,
+                              height: screenHeight * 0.22,
+                              width: screenWidth * 0.72,
                               decoration: const BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage('assets/images/logo2.png'),
@@ -100,6 +101,7 @@ class __AccountcreateState extends State<Addresscreate> {
                               height: 750,
                               width: 550,
                               decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(40),
                                 boxShadow: [
                                   // the card shadow
                                   BoxShadow(
@@ -142,7 +144,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                             hint: Center(
                                               child: Text( "Address",
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -152,7 +154,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                           ),
                                           // Input text style, color and font.
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
                                             color: Colors.black,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.normal,
@@ -179,7 +181,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                             hint: Center(
                                               child: Text( "City",
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -189,7 +191,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                           ),
                                           // Input text style, color and font.
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
                                             color: Colors.black,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.normal,
@@ -218,7 +220,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                               hint: Text(
                                                 'Province/State',
                                                 style: TextStyle(
-                                                  fontSize: 18,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 18),
                                                   color: Colors.black,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.normal,
@@ -230,7 +232,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                                   child: Center(
                                                     child: Text(item,
                                                       style: TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: ResponsiveFont.getFontSize(context, 18),
                                                       color: Colors.black,
                                                       fontFamily: 'Montserrat',
                                                       fontWeight: FontWeight.normal,
@@ -273,7 +275,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                             hint: Center(
                                               child: Text( "Zip Code",
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -283,7 +285,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                           ),
                                           // Input text style, color and font.
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
                                             color: Colors.black,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.normal,
@@ -315,7 +317,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                             hint: Center(
                                               child: Text( "Phone",
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -325,7 +327,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                           ),
                                           // Input text style, color and font.
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
                                             color: Colors.black,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.normal,
@@ -354,7 +356,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                             hint: Center(
                                               child: Text( "Verification Code",
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -364,7 +366,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                           ),
                                           // Input text style, color and font.
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
                                             color: Colors.black,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.normal,
@@ -388,7 +390,7 @@ class __AccountcreateState extends State<Addresscreate> {
                                           },
                                           child: Text("Next",
                                             style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: ResponsiveFont.getFontSize(context, 18),
                                               color: Colors.white,
                                               fontFamily: "Montserrat",
                                               fontWeight: FontWeight.bold,

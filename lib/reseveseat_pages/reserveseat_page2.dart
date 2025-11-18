@@ -1,3 +1,4 @@
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +15,16 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
   Widget build(BuildContext context) {
     //final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+      
+    double resultBox;
+      if (screenHeight < 800) {
+        resultBox = screenHeight * 0.09;
+      } else if (screenHeight < 1000) {
+        resultBox = screenHeight * 0.08;
+      } else { // For iPads & tablets
+        resultBox = screenHeight * 0.07;
+      }
+
     return Scaffold(
       body: SingleChildScrollView(
         child: GestureDetector(
@@ -59,8 +70,8 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
                 child: Center(
                   child: Text("Class List",
                           style: TextStyle(
-                            fontSize: screenHeight * 0.022,
-                            fontWeight: FontWeight.w600,
+                            fontSize: ResponsiveFont.getFontSize(context, 20),
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontFamily: 'Montserrat', // font Montserrat
                             ),
@@ -92,8 +103,8 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
                           children: [
                             Text("Live Stream",
                               style: TextStyle(
-                                fontSize: screenHeight * 0.026,
-                                fontWeight: FontWeight.w600,
+                                fontSize: ResponsiveFont.getFontSize(context, 24),
+                                fontWeight: FontWeight.bold,
                                 color: Colors.black,
                                 fontFamily: 'Montserrat', // font Montserrat
                                 overflow: TextOverflow.clip
@@ -132,8 +143,8 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
                                           Text(
                                             "05 September 2025",
                                             style: TextStyle(
-                                              fontSize: screenHeight * 0.019,
-                                              fontWeight: FontWeight.w600,
+                                              fontSize: ResponsiveFont.getFontSize(context, 18),
+                                              fontWeight: FontWeight.bold,
                                               color: Colors.black,
                                               fontFamily: 'Montserrat',
                                               overflow: TextOverflow.clip,
@@ -148,8 +159,8 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
                                             children: [
                                               // time container 1
                                               Container(
-                                                height: screenHeight * 0.07,
-                                                width: screenHeight *0.12,
+                                                height: resultBox,
+                                                width: resultBox * 1.4,
                                                 decoration: BoxDecoration(
                                                   color: Colors.white,
                                                   borderRadius: BorderRadius.circular(10)
@@ -161,7 +172,7 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
                                                       Text(
                                                         "Begin time",
                                                         style: TextStyle(
-                                                          fontSize: screenHeight * 0.014,
+                                                          fontSize: ResponsiveFont.getFontSize(context, 12),
                                                           fontWeight: FontWeight.normal,
                                                           color: Colors.black,
                                                           fontFamily: 'Montserrat',
@@ -172,7 +183,7 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
                                                       Text(
                                                         "9:00 AM",
                                                         style: TextStyle(
-                                                          fontSize: screenHeight * 0.018,
+                                                          fontSize: ResponsiveFont.getFontSize(context, 16),
                                                           fontWeight: FontWeight.bold,
                                                           color: Colors.black,
                                                           fontFamily: 'Montserrat',
@@ -186,8 +197,8 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
                                               Spacer(),
                                               // schedule container container 2
                                               Container(
-                                                height: screenHeight * 0.07,
-                                                width: screenHeight *0.12,
+                                                height: resultBox,
+                                                width: resultBox * 1.4,
                                                 decoration: BoxDecoration(
                                                   color: Colors.white,
                                                   borderRadius: BorderRadius.circular(10)
@@ -199,7 +210,7 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
                                                       Text(
                                                         "Scheduled",
                                                         style: TextStyle(
-                                                          fontSize: screenHeight * 0.014,
+                                                          fontSize: ResponsiveFont.getFontSize(context, 12),
                                                           fontWeight: FontWeight.normal,
                                                           color: Colors.black,
                                                           fontFamily: 'Montserrat',
@@ -210,7 +221,7 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
                                                       Text(
                                                         "0",
                                                         style: TextStyle(
-                                                          fontSize: screenHeight * 0.018,
+                                                          fontSize: ResponsiveFont.getFontSize(context, 16),
                                                           fontWeight: FontWeight.bold,
                                                           color: Colors.black,
                                                           fontFamily: 'Montserrat',
@@ -226,8 +237,8 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
 
                                               // total seat container 3
                                               Container(
-                                                height: screenHeight * 0.07,
-                                                width: screenHeight *0.12,
+                                                height: resultBox,
+                                                width: resultBox * 1.4,
                                                 decoration: BoxDecoration(
                                                   color: Colors.white,
                                                   borderRadius: BorderRadius.circular(10)
@@ -239,7 +250,7 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
                                                       Text(
                                                         "Total seats",
                                                         style: TextStyle(
-                                                          fontSize: screenHeight * 0.014,
+                                                          fontSize: ResponsiveFont.getFontSize(context, 12),
                                                           fontWeight: FontWeight.normal,
                                                           color: Colors.black,
                                                           fontFamily: 'Montserrat',
@@ -250,7 +261,7 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
                                                       Text(
                                                         "10",
                                                         style: TextStyle(
-                                                          fontSize: screenHeight * 0.018,
+                                                          fontSize: ResponsiveFont.getFontSize(context, 16),
                                                           fontWeight: FontWeight.bold,
                                                           color: Colors.black,
                                                           fontFamily: 'Montserrat',
@@ -283,7 +294,7 @@ class _ReserveseatPage2State extends State<ReserveseatPage2> {
                                               onPressed: (){},
                                               child: Text("RESERVE SEAT",
                                                 style: TextStyle(
-                                                  fontSize: screenHeight * 0.019,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 16),
                                                   color: Colors.white,
                                                   fontFamily: "Montserrat",
                                                   fontWeight: FontWeight.bold,

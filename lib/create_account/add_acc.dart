@@ -1,4 +1,5 @@
 import 'package:cco_test/create_account/add_acc_conroller.dart';
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -59,7 +60,7 @@ class _AccountcreateState extends State<Accountcreate> {
                 children: [      
                   Container(
                     width: double.infinity,
-                    decoration: const BoxDecoration(
+                    decoration:  BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(40),
@@ -68,22 +69,22 @@ class _AccountcreateState extends State<Accountcreate> {
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsets.only(left: 20, right: 20, bottom: 40), // padding of the white container. can be used to change the width of the CARD.
+                           EdgeInsets.only(left: 20, right: 20, bottom: 40), // padding of the white container. can be used to change the width of the CARD.
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
+                            padding:  EdgeInsets.only(
                                 bottom: 10), // for spacing with the next widget
                             child: Container(
-                              constraints: const BoxConstraints(
+                              constraints:  BoxConstraints(
                                 maxHeight: 250,
                                 maxWidth: 400,
                                 minHeight: 170,
                                 minWidth: 220,
                               ),
-                              height: screenHeight * 0.19,
-                              width: screenWidth * 0.7,
-                              decoration: const BoxDecoration(
+                              height: screenHeight * 0.22,
+                              width: screenWidth * 0.72,
+                              decoration:  BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage('assets/images/logo2.png'),
                                   fit: BoxFit.cover,
@@ -97,6 +98,7 @@ class _AccountcreateState extends State<Accountcreate> {
                               height: 1020,
                               width: 600,
                               decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(40),
                                 boxShadow: [
                                   // the card shadow
                                   BoxShadow(
@@ -120,7 +122,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                     children: [
                                        Text("Create account",
                                       style: TextStyle(
-                                        fontSize: 30,
+                                        fontSize: ResponsiveFont.getFontSize(context, 30),
                                         color: Colors.black,
                                         fontFamily: 'Montserrat', // font Montserrat
                                         ),
@@ -150,7 +152,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                             hint: Center(
                                               child: Text( "First Name",
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -160,7 +162,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                           ),
                                           // Input text style, color and font.
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
                                             color: Colors.black,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.normal,
@@ -192,7 +194,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                             hint: Center(
                                               child: Text( "Last Name",
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -202,7 +204,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                           ),
                                           // Input text style, color and font.
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
                                             color: Colors.black,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.normal,
@@ -233,7 +235,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                               hint: Text(
                                                 'Select Lisence Type',
                                                 style: TextStyle(
-                                                  fontSize: 18,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 18),
                                                   color: Colors.black,
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.normal,
@@ -245,7 +247,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                                   child: Center(
                                                     child: Text(item,
                                                       style: TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: ResponsiveFont.getFontSize(context, 18),
                                                       color: Colors.black,
                                                       fontFamily: 'Montserrat',
                                                       fontWeight: FontWeight.normal,
@@ -289,7 +291,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                                             ? "${date.day}/${date.month}/${date.year}"
                                                             : "Scheduled Exam Date",
                                                           style: TextStyle(
-                                                            fontSize: 18,
+                                                            fontSize: ResponsiveFont.getFontSize(context, 18),
                                                             color: Colors.black,
                                                             fontFamily: 'Montserrat',
                                                             fontWeight: FontWeight.normal,
@@ -308,12 +310,15 @@ class _AccountcreateState extends State<Accountcreate> {
                                           // helper text
                                           Text("You will have access until sooner of this date or 4 months",
                                             style: TextStyle(
-                                              fontSize: 8,
+                                              fontSize: ResponsiveFont.getFontSize(context, 9),
                                               color: Colors.black,
                                               fontFamily: 'Montserrat',
-                                              fontWeight: FontWeight.normal,
+                                              fontWeight: FontWeight.w500,
+                                              overflow: TextOverflow.clip
                                                 ),
-                                                ),
+                                                maxLines: 2,
+                                                textAlign: TextAlign.center,
+                                              ),
                                         ],
                                       ),
                         
@@ -341,7 +346,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                             hint: Center(
                                               child: Text( "Email ID",
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -351,7 +356,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                           ),
                                           // Input text style, color and font.
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
                                             color: Colors.black,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.normal,
@@ -383,7 +388,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                             hint: Center(
                                               child: Text( "Confirm Email ID",
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -393,7 +398,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                           ),
                                           // Input text style, color and font.
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
                                             color: Colors.black,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.normal,
@@ -425,7 +430,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                             hint: Center(
                                               child: Text( "Password",
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -433,19 +438,24 @@ class _AccountcreateState extends State<Accountcreate> {
                                                 ),
                                             ),
                                             helper: Center(
-                                              child: Text( "Use 6 or more characters with a mix of letters,numbers & symbols.",
-                                                style: TextStyle(
-                                                  fontSize: 8,
-                                                  color: Colors.black,
-                                                  fontFamily: 'Montserrat',
-                                                  fontWeight: FontWeight.w500,
+                                              child: Expanded(
+                                                child: Text( "Use 6 or more characters with a mix of letters,numbers & symbols.",
+                                                  style: TextStyle(
+                                                    fontSize: ResponsiveFont.getFontSize(context, 9),
+                                                    color: Colors.black,
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.w500,
+                                                    overflow: TextOverflow.clip
+                                                      ),
+                                                      maxLines: 2,
+                                                      textAlign: TextAlign.center,
                                                     ),
-                                                  ),
+                                              ),
                                             ),
                                           ),
                                           // Input text style, color and font.
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
                                             color: Colors.black,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.normal,
@@ -477,7 +487,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                             hint: Center(
                                               child: Text( "Confirm Password",
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -487,7 +497,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                           ),
                                           // Input text style, color and font.
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
                                             color: Colors.black,
                                             fontFamily: 'Montserrat',
                                             fontWeight: FontWeight.normal,
@@ -511,7 +521,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                           },
                                           child: Text("Next",
                                             style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: ResponsiveFont.getFontSize(context, 18),
                                               color: Colors.white,
                                               fontFamily: "Montserrat",
                                               fontWeight: FontWeight.bold,

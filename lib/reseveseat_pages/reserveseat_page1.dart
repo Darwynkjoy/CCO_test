@@ -1,4 +1,5 @@
 import 'package:cco_test/reseveseat_pages/reserveseat_contoller.dart';
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -60,8 +61,8 @@ class _ReserveseatPage1State extends State<ReserveseatPage1> {
                 child: Center(
                   child: Text("Reserve seat",
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
+                            fontSize: ResponsiveFont.getFontSize(context, 20),
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontFamily: 'Montserrat', // font Montserrat
                             ),
@@ -111,8 +112,8 @@ class _ReserveseatPage1State extends State<ReserveseatPage1> {
                                     children: [
                                       Text("Select the interested area in where at tending you theare class.",
                                         style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w600,
+                                          fontSize: ResponsiveFont.getFontSize(context, 18),
+                                          fontWeight: FontWeight.bold,
                                           color: Colors.black,
                                           fontFamily: 'Montserrat', // font Montserrat
                                           overflow: TextOverflow.clip
@@ -155,8 +156,8 @@ class _ReserveseatPage1State extends State<ReserveseatPage1> {
 
                                           Text("Live Stream",
                                             style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w600,
+                                              fontSize: ResponsiveFont.getFontSize(context, 18),
+                                              fontWeight: FontWeight.bold,
                                               color: Colors.black,
                                               fontFamily: 'Montserrat', // font Montserrat
                                               ),
@@ -201,8 +202,8 @@ class _ReserveseatPage1State extends State<ReserveseatPage1> {
 
                                           Text("California",
                                             style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w600,
+                                              fontSize: ResponsiveFont.getFontSize(context, 18),
+                                              fontWeight: FontWeight.bold,
                                               color: Colors.black,
                                               fontFamily: 'Montserrat', // font Montserrat
                                               ),
@@ -230,7 +231,7 @@ class _ReserveseatPage1State extends State<ReserveseatPage1> {
                                 },
                                 child: Text("GET CLASS LIST",
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: ResponsiveFont.getFontSize(context, 16),
                                     color: Colors.white,
                                     fontFamily: "Montserrat",
                                     fontWeight: FontWeight.bold,
@@ -259,7 +260,7 @@ class _ReserveseatPage1State extends State<ReserveseatPage1> {
                               },
                               child: Text("CANCEL",
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: ResponsiveFont.getFontSize(context, 16),
                                   color: Colors.black,
                                   fontFamily: "Montserrat",
                                   fontWeight: FontWeight.bold,

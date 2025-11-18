@@ -1,4 +1,5 @@
 import 'package:cco_test/test_pages/testingmode_contoller.dart';
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class Testingmode3 extends StatefulWidget {
@@ -16,6 +17,21 @@ class _Testingmode3State extends State<Testingmode3> {
 
     //final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+
+    //dinamic container height for the question box
+    double containerHeight;
+    double resultBox;
+      if (screenHeight < 800) {
+        containerHeight = screenHeight * .095;
+        resultBox = screenHeight * 0.07;
+      } else if (screenHeight < 1000) {
+        containerHeight = screenHeight * 0.08;
+        resultBox = screenHeight * 0.06;
+      } else {
+        containerHeight = screenHeight * 0.07; // For iPads & tablets
+        resultBox = screenHeight * 0.055;
+      }
+      
     return Scaffold(
       body: SingleChildScrollView(
         child: GestureDetector(
@@ -61,8 +77,8 @@ class _Testingmode3State extends State<Testingmode3> {
                 child: Center(
                   child: Text("Mock test result",
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
+                            fontSize: ResponsiveFont.getFontSize(context, 20),
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontFamily: 'Montserrat', // font Montserrat
                             ),
@@ -130,7 +146,7 @@ class _Testingmode3State extends State<Testingmode3> {
                                             child: Text(
                                               "Sorry better luck next time",
                                               style: TextStyle(
-                                                fontSize: 20,
+                                                fontSize: ResponsiveFont.getFontSize(context, 20),
                                                 fontWeight: FontWeight.bold,
                                                 color: Color(0xFFCF0829),
                                                 fontFamily: "Montserrat",
@@ -151,7 +167,7 @@ class _Testingmode3State extends State<Testingmode3> {
                                           Text(
                                             "Overall percentage",
                                             style: TextStyle(
-                                              fontSize: 20,
+                                              fontSize: ResponsiveFont.getFontSize(context, 20),
                                               fontWeight: FontWeight.bold,
                                               color: Color(0xFF595959),
                                               fontFamily: "Montserrat",
@@ -160,7 +176,7 @@ class _Testingmode3State extends State<Testingmode3> {
                                         Text(
                                             "0%",
                                             style: TextStyle(
-                                              fontSize: 25,
+                                              fontSize: ResponsiveFont.getFontSize(context, 25),
                                               fontWeight: FontWeight.normal,
                                               color:  Colors.black,
                                               fontFamily: "Montserrat",
@@ -186,7 +202,7 @@ class _Testingmode3State extends State<Testingmode3> {
                                 itemBuilder: (context, item) {
                                   final texts = controller.subjectList[item];
                                     return Container(
-                                      height: 70,
+                                      height: containerHeight,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
                                         color: Colors.white,
@@ -206,7 +222,7 @@ class _Testingmode3State extends State<Testingmode3> {
                                               child: Text(
                                               texts['subjects'],
                                               style: TextStyle(
-                                                fontSize: 15,
+                                                fontSize: ResponsiveFont.getFontSize(context, 16),
                                                 fontWeight: FontWeight.normal,
                                                 color:Colors.black,
                                                 fontFamily: 'Montserrat',
@@ -214,25 +230,26 @@ class _Testingmode3State extends State<Testingmode3> {
                                               overflow: TextOverflow.clip,
                                             ),
                                           ),
-                                            Container(
-                                              height: 48,
-                                              width: 52,
-                                              decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(5),
-                                                color: Color(0xFFABC2E3)
-                                              ),
-                                              child: Center(
-                                                child: Text("0%",
-                                                  style: TextStyle(
-                                                    fontSize: 24,
-                                                    fontWeight: FontWeight.normal,
-                                                    color:Colors.black,
-                                                    fontFamily: 'Montserrat',
-                                                  ),
-                                                  overflow: TextOverflow.clip,
+                                          SizedBox(width: 10,),
+                                          Container(
+                                            height: resultBox,
+                                            width: resultBox * 1.2,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(5),
+                                              color: Color(0xFFABC2E3)
+                                            ),
+                                            child: Center(
+                                              child: Text("0%",
+                                                style: TextStyle(
+                                                  fontSize: ResponsiveFont.getFontSize(context, 24),
+                                                  fontWeight: FontWeight.normal,
+                                                  color:Colors.black,
+                                                  fontFamily: 'Montserrat',
                                                 ),
+                                                overflow: TextOverflow.clip,
                                               ),
-                                            )
+                                            ),
+                                           )
                                           ],
                                         ),
                                       ),
@@ -258,7 +275,7 @@ class _Testingmode3State extends State<Testingmode3> {
                               onPressed: (){},
                               child: Text("Review missed questions",
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: ResponsiveFont.getFontSize(context, 16),
                                   color: Colors.white,
                                   fontFamily: "Montserrat",
                                   fontWeight: FontWeight.bold,
@@ -287,7 +304,7 @@ class _Testingmode3State extends State<Testingmode3> {
                               },
                               child: Text("Close",
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: ResponsiveFont.getFontSize(context, 16),
                                   color: Colors.black,
                                   fontFamily: "Montserrat",
                                   fontWeight: FontWeight.bold,

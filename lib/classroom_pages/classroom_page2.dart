@@ -1,3 +1,4 @@
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class ClassroomPage2 extends StatefulWidget {
@@ -57,8 +58,8 @@ class _ClassroomPage2State extends State<ClassroomPage2> {
                 child: Center(
                   child: Text("Classroom",
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
+                            fontSize: ResponsiveFont.getFontSize(context, 20),
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontFamily: 'Montserrat', // font Montserrat
                             ),
@@ -125,7 +126,7 @@ class _ClassroomPage2State extends State<ClassroomPage2> {
                               child: Center(
                                 child: Text("No description available!",
                                   style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: ResponsiveFont.getFontSize(context, 18),
                                     fontWeight: FontWeight.normal,
                                     color: Colors.black,
                                     fontFamily: 'Montserrat', // font Montserrat

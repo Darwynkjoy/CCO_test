@@ -1,3 +1,4 @@
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class Testingmode1 extends StatefulWidget {
@@ -55,8 +56,8 @@ class _Testingmode1State extends State<Testingmode1> {
                 child: Center(
                   child: Text("Testing Mode",
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
+                            fontSize: ResponsiveFont.getFontSize(context, 18),
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontFamily: 'Montserrat', // font Montserrat
                             ),
@@ -88,8 +89,8 @@ class _Testingmode1State extends State<Testingmode1> {
                           children: [
                             Text("Text Exam Rules",
                               style: TextStyle(
-                                fontSize: 28,
-                                fontWeight: FontWeight.w600,
+                                fontSize: ResponsiveFont.getFontSize(context, 28),
+                                fontWeight: FontWeight.bold,
                                 color: Colors.black,
                                 fontFamily: "Montserrat",
                                 ),
@@ -105,7 +106,7 @@ class _Testingmode1State extends State<Testingmode1> {
                                 
                                 child: Text("""The morning breeze carried whispers of forgotten dreams across the sleepy, golden countryside hills. Beneath ancient trees, shadows danced gently, weaving stories only the wind could understand. A curious bird watched silently, its bright eyes glimmering with unspoken wonder and secrets. Somewhere nearby, a river hummed softly, polishing stones smooth with years of patient persistence. Old houses stood proudly, their walls echoing laughter and the scent of warm bread. Children chased butterflies through meadows, unaware of how precious those fleeting hours truly were.""",
                                   style: TextStyle(
-                                    fontSize: 22,
+                                    fontSize: ResponsiveFont.getFontSize(context, 20),
                                     fontWeight: FontWeight.w500,
                                     color: Colors.black,
                                     fontFamily: 'Montserrat', // font Montserrat
@@ -142,7 +143,7 @@ class _Testingmode1State extends State<Testingmode1> {
                                 },
                                 child: Text("Start Exam",
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: ResponsiveFont.getFontSize(context, 16),
                                     color: Colors.white,
                                     fontFamily: "Montserrat",
                                     fontWeight: FontWeight.bold,
@@ -166,7 +167,7 @@ class _Testingmode1State extends State<Testingmode1> {
                                 onPressed: (){},
                                 child: Text("Previous Exam Results",
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: ResponsiveFont.getFontSize(context, 16),
                                     color: Colors.white,
                                     fontFamily: "Montserrat",
                                     fontWeight: FontWeight.bold,
@@ -193,7 +194,7 @@ class _Testingmode1State extends State<Testingmode1> {
                               onPressed: (){},
                               child: Text("Cancel",
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: ResponsiveFont.getFontSize(context, 16),
                                   color: Colors.black,
                                   fontFamily: "Montserrat",
                                   fontWeight: FontWeight.bold,

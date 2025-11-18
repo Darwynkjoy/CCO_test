@@ -1,4 +1,5 @@
 import 'package:cco_test/classroom_pages/classroom_contoller.dart';
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -61,8 +62,8 @@ class _ClassroomPage1State extends State<ClassroomPage1> {
                 child: Center(
                   child: Text("Classroom",
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
+                            fontSize: ResponsiveFont.getFontSize(context, 20),
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontFamily: 'Montserrat', // font Montserrat
                             ),
@@ -116,7 +117,7 @@ class _ClassroomPage1State extends State<ClassroomPage1> {
                                   children: [
                                     Text("Please select category",
                                       style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: ResponsiveFont.getFontSize(context, 20),
                                         fontWeight: FontWeight.normal,
                                         color: Colors.black,
                                         fontFamily: 'Montserrat', // font Montserrat
@@ -144,7 +145,7 @@ class _ClassroomPage1State extends State<ClassroomPage1> {
                                                 hint: Text(
                                                   'Select Category',
                                                   style: TextStyle(
-                                                    fontSize: 18,
+                                                    fontSize: ResponsiveFont.getFontSize(context, 18),
                                                     color: Colors.black,
                                                     fontFamily: 'Montserrat',
                                                     fontWeight: FontWeight.normal,
@@ -156,10 +157,10 @@ class _ClassroomPage1State extends State<ClassroomPage1> {
                                                     child: Center(
                                                       child: Text(item,
                                                         style: TextStyle(
-                                                        fontSize: 18,
+                                                        fontSize: ResponsiveFont.getFontSize(context, 16),
                                                         color: Color(0xFF5E5E5E),
                                                         fontFamily: 'Montserrat',
-                                                        fontWeight: FontWeight.w600,
+                                                        fontWeight: FontWeight.bold,
                                                       ),
                                                       ),
                                                     ),
@@ -186,7 +187,7 @@ class _ClassroomPage1State extends State<ClassroomPage1> {
 
                             Container(
                                 width: 600,
-                                height: screenHeight*.3,
+                                height: screenHeight*.35,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFFFF4E0),
                                   borderRadius: BorderRadius.circular(20),
@@ -235,8 +236,8 @@ class _ClassroomPage1State extends State<ClassroomPage1> {
                                           Expanded(
                                             child: Text("No description available!",
                                               style: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w600,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
+                                                fontWeight: FontWeight.bold,
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat', // font Montserrat
                                                 overflow: TextOverflow.clip
@@ -254,8 +255,8 @@ class _ClassroomPage1State extends State<ClassroomPage1> {
                                       Row(
                                         children: [
                                           Container(
-                                            height: screenHeight*.05/1,
-                                            width: screenHeight*.05/1,
+                                            height: screenHeight*.06,
+                                            width: screenHeight*.06,
                                             decoration: BoxDecoration(
                                               borderRadius: BorderRadius.circular(10),
                                               color: Colors.white,
@@ -279,7 +280,7 @@ class _ClassroomPage1State extends State<ClassroomPage1> {
 
                                           Text("Workbook",
                                             style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: ResponsiveFont.getFontSize(context, 18),
                                               fontWeight: FontWeight.normal,
                                               color: Colors.black,
                                               fontFamily: 'Montserrat', // font Montserrat
@@ -318,13 +319,9 @@ class _ClassroomPage1State extends State<ClassroomPage1> {
                                             ),
                                           )),
 
-                                          SizedBox(
-                                            width: 20,
-                                          ),
-
                                           Text("Mark as watched",
                                             style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: ResponsiveFont.getFontSize(context, 16),
                                               fontWeight: FontWeight.normal,
                                               color: Colors.black,
                                               fontFamily: 'Montserrat', // font Montserrat

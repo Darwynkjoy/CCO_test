@@ -1,4 +1,5 @@
 import 'package:cco_test/create_account/add_acc_conroller.dart';
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -61,7 +62,7 @@ class _BillCreateState extends State<BillCreate> {
                 children: [       
                   Container(
                     width: double.infinity,
-                    decoration: const BoxDecoration(
+                    decoration:  BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(40),
@@ -73,17 +74,17 @@ class _BillCreateState extends State<BillCreate> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 0), // for spacing with the next widget
+                            padding:  EdgeInsets.only(bottom: 0), // for spacing with the next widget
                             child: Container(
-                              constraints: const BoxConstraints(
+                              constraints:  BoxConstraints(
                                 maxHeight: 250,
                                 maxWidth: 400,
                                 minHeight: 170,
                                 minWidth: 220,
                               ),
-                              height: screenHeight * 0.19,
-                              width: screenWidth * 0.7,
-                              decoration: const BoxDecoration(
+                              height: screenHeight * 0.22,
+                              width: screenWidth * 0.72,
+                              decoration:  BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage('assets/images/logo2.png'),
                                   fit: BoxFit.cover,
@@ -94,7 +95,7 @@ class _BillCreateState extends State<BillCreate> {
 
                           Text("Choose Package",
                             style: TextStyle(
-                              fontSize: 35,
+                              fontSize: ResponsiveFont.getFontSize(context, 35),
                               color: Colors.black,
                               fontFamily: 'Montserrat', // font Montserrat
                               ),
@@ -109,29 +110,29 @@ class _BillCreateState extends State<BillCreate> {
                                 final plan = controller.plans[index];
                                 return Container(
                                   width: 600,
-                                  margin: const EdgeInsets.only(bottom: 20),
+                                  margin:  EdgeInsets.only(bottom: 20),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
                                     color: plan['Color'],
                                   ),
-                                  padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                                  padding:  EdgeInsets.symmetric(vertical: 30, horizontal: 20),
                                   child: Column(
                                     children: [
                                       Row(
                                         children: [
                                           Text(
                                             plan['price']!,
-                                            style: const TextStyle(
-                                              fontSize: 60,
+                                            style:  TextStyle(
+                                              fontSize: ResponsiveFont.getFontSize(context, 60),
                                               color: Colors.white,
                                               fontFamily: 'Montserrat',
                                             ),
                                           ),
-                                          const Spacer(),
+                                           Spacer(),
                                           Obx(() => Transform.scale(
                                             scale: 2.0,
                                             child: Checkbox(
-                                              side: const BorderSide(color: Colors.white, width: 0.5),
+                                              side:  BorderSide(color: Colors.white, width: 0.5),
                                               checkColor: Colors.lightGreenAccent,
                                               activeColor: Colors.white,
                                               value: controller.selectedPlanIndex.value == index,
@@ -145,8 +146,8 @@ class _BillCreateState extends State<BillCreate> {
                                       ),
                                       Text(
                                         plan['description']!,
-                                        style: const TextStyle(
-                                          fontSize: 15,
+                                        style:  TextStyle(
+                                          fontSize: ResponsiveFont.getFontSize(context, 15),
                                           color: Colors.white,
                                           fontFamily: 'Montserrat',
                                         ),
@@ -164,6 +165,7 @@ class _BillCreateState extends State<BillCreate> {
                               height: 175,
                               width: 600,
                               decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(40),
                                 boxShadow: [
                                   // the card shadow
                                   BoxShadow(
@@ -189,7 +191,7 @@ class _BillCreateState extends State<BillCreate> {
                                         Icon(Icons.pin_drop_outlined,size: 30,color: Colors.red,),
                                         Text("Contact Address",
                                           style: TextStyle(
-                                                    fontSize: 25,
+                                                    fontSize: ResponsiveFont.getFontSize(context, 25),
                                                     color: Colors.black,
                                                     fontFamily: 'Montserrat',
                                                     fontWeight: FontWeight.normal,
@@ -201,7 +203,7 @@ class _BillCreateState extends State<BillCreate> {
 
                                     Text("73455 Twentynine Palms Highway,\nTwentynine Palms CA 92277",
                                       style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -221,6 +223,7 @@ class _BillCreateState extends State<BillCreate> {
                               height: 555,
                               width: 600,
                               decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(40),
                                 boxShadow: [
                                   // the card shadow
                                   BoxShadow(
@@ -256,7 +259,7 @@ class _BillCreateState extends State<BillCreate> {
                                             Expanded(
                                               child: Text("Billing Address is same as Contact Address",
                                               style: TextStyle(
-                                                        fontSize: 16,
+                                                        fontSize: ResponsiveFont.getFontSize(context, 16),
                                                         color: Colors.black,
                                                         fontFamily: 'Montserrat',
                                                         fontWeight: FontWeight.normal,
@@ -269,7 +272,7 @@ class _BillCreateState extends State<BillCreate> {
                                         ),
                                         Text("Billing Adrress",
                                           style: TextStyle(
-                                                    fontSize: 25,
+                                                    fontSize: ResponsiveFont.getFontSize(context, 25),
                                                     color: Colors.black,
                                                     fontFamily: 'Montserrat',
                                                     fontWeight: FontWeight.normal,
@@ -282,7 +285,7 @@ class _BillCreateState extends State<BillCreate> {
                                                 alignment: AlignmentGeometry.centerLeft,
                                                 child: Text("Address",
                                                   style: TextStyle(
-                                                    fontSize: 12,
+                                                    fontSize: ResponsiveFont.getFontSize(context, 12),
                                                     color: Color(0xFF666666),
                                                     fontFamily: 'Montserrat',
                                                     fontWeight: FontWeight.normal,
@@ -308,7 +311,7 @@ class _BillCreateState extends State<BillCreate> {
                                                 contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
                                                 hint: Text( "Enter your address",
                                                 style: TextStyle(
-                                                  fontSize: 18,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 18),
                                                   color: Color(0xFF666666),
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.normal,
@@ -317,7 +320,7 @@ class _BillCreateState extends State<BillCreate> {
                                               ),
                                               // Input text style, color and font.
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -332,7 +335,7 @@ class _BillCreateState extends State<BillCreate> {
                                               alignment: AlignmentGeometry.centerLeft,
                                               child: Text("City",
                                           style: TextStyle(
-                                                    fontSize: 12,
+                                                    fontSize: ResponsiveFont.getFontSize(context, 12),
                                                     color: Color(0xFF666666),
                                                     fontFamily: 'Montserrat',
                                                     fontWeight: FontWeight.normal,
@@ -358,7 +361,7 @@ class _BillCreateState extends State<BillCreate> {
                                                 contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
                                                 hint: Text( "Enter your city",
                                                 style: TextStyle(
-                                                  fontSize: 18,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 18),
                                                   color: Color(0xFF666666),
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.normal,
@@ -367,7 +370,7 @@ class _BillCreateState extends State<BillCreate> {
                                               ),
                                               // Input text style, color and font.
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Color(0xFF666666),
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -382,7 +385,7 @@ class _BillCreateState extends State<BillCreate> {
                                               alignment: AlignmentGeometry.centerLeft,
                                               child: Text("State",
                                           style: TextStyle(
-                                                    fontSize: 12,
+                                                    fontSize: ResponsiveFont.getFontSize(context, 12),
                                                     color: Color(0xFF666666),
                                                     fontFamily: 'Montserrat',
                                                     fontWeight: FontWeight.normal,
@@ -412,7 +415,7 @@ class _BillCreateState extends State<BillCreate> {
                                                 errorText: controller.phoneMessageError.value,
                                                 hint: Text( "Enter your state",
                                                 style: TextStyle(
-                                                  fontSize: 18,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 18),
                                                   color: Color(0xFF666666),
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.normal,
@@ -421,7 +424,7 @@ class _BillCreateState extends State<BillCreate> {
                                               ),
                                               // Input text style, color and font.
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Color(0xFF666666),
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -437,7 +440,7 @@ class _BillCreateState extends State<BillCreate> {
                                               alignment: AlignmentGeometry.centerLeft,
                                               child: Text("Zipcode",
                                           style: TextStyle(
-                                                    fontSize: 12,
+                                                    fontSize: ResponsiveFont.getFontSize(context, 12),
                                                     color: Color(0xFF666666),
                                                     fontFamily: 'Montserrat',
                                                     fontWeight: FontWeight.normal,
@@ -467,7 +470,7 @@ class _BillCreateState extends State<BillCreate> {
                                                 errorText: controller.zipMessageError.value,
                                                 helper: Text( "Zipcode must be 5 digits",
                                                 style: TextStyle(
-                                                  fontSize: 9,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 9),
                                                   color: Color(0xFF666666),
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.normal,
@@ -475,7 +478,7 @@ class _BillCreateState extends State<BillCreate> {
                                                   ),
                                                 hint: Text( "Enter your Zipcode",
                                                 style: TextStyle(
-                                                  fontSize: 18,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 18),
                                                   color: Color(0xFF666666),
                                                   fontFamily: 'Montserrat',
                                                   fontWeight: FontWeight.normal,
@@ -484,7 +487,7 @@ class _BillCreateState extends State<BillCreate> {
                                               ),
                                               // Input text style, color and font.
                                               style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Color(0xFF666666),
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
@@ -518,7 +521,7 @@ class _BillCreateState extends State<BillCreate> {
                                   onPressed: (){},
                                   child: Text("Submit",
                                     style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: ResponsiveFont.getFontSize(context, 16),
                                       color: Colors.white,
                                       fontFamily: "Montserrat",
                                       fontWeight: FontWeight.bold,
@@ -547,7 +550,7 @@ class _BillCreateState extends State<BillCreate> {
                                 },
                                 child: Text("Cancel",
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: ResponsiveFont.getFontSize(context, 16),
                                     color: Colors.black,
                                     fontFamily: "Montserrat",
                                     fontWeight: FontWeight.bold,

@@ -21,16 +21,16 @@ class _Trainingpage3State extends State<Trainingpage3> {
 
     //dinamic container height for the question box
     double containerHeight;
-    double answerBox;
+    double resultBox;
       if (screenHeight < 800) {
         containerHeight = screenHeight * .09;
-        answerBox = screenHeight * 0.08;
+        resultBox = screenHeight * 0.08;
       } else if (screenHeight < 1000) {
         containerHeight = screenHeight * 0.08;
-        answerBox = screenHeight * 0.07;
+        resultBox = screenHeight * 0.07;
       } else {
         containerHeight = screenHeight * 0.06; // For iPads & tablets
-        answerBox = screenHeight * 0.05;
+        resultBox = screenHeight * 0.05;
       }
 
     return Scaffold(
@@ -183,8 +183,8 @@ class _Trainingpage3State extends State<Trainingpage3> {
                                       Padding(
                                         padding: const EdgeInsets.symmetric(horizontal: 3.0),
                                         child: Container(
-                                          height: answerBox,
-                                          width: answerBox * 1.2,
+                                          height: resultBox,
+                                          width: resultBox * 1.2,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             boxShadow: [

@@ -1,4 +1,5 @@
 import 'package:cco_test/test_pages/testingmode_contoller.dart';
+import 'package:cco_test/utilities/fontsize_contoller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,6 +18,20 @@ class _Testingmode2State extends State<Testingmode2> {
 
     //final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+
+    double containerHeight;
+    double resultBox;
+      if (screenHeight < 800) {
+        containerHeight = screenHeight * .17;
+        resultBox = screenHeight * 0.1;
+      } else if (screenHeight < 1000) {
+        containerHeight = screenHeight * 0.12;
+        resultBox = screenHeight * 0.08;
+      } else {
+        containerHeight = screenHeight * 0.1; // For iPads & tablets
+        resultBox = screenHeight * 0.09;
+      }
+
     return Scaffold(
       body: SingleChildScrollView(
         child: GestureDetector(
@@ -62,8 +77,8 @@ class _Testingmode2State extends State<Testingmode2> {
                 child: Center(
                   child: Text("Testing Mode",
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
+                            fontSize: ResponsiveFont.getFontSize(context, 20),
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontFamily: 'Montserrat', // font Montserrat
                             ),
@@ -117,8 +132,8 @@ class _Testingmode2State extends State<Testingmode2> {
                                     children: [
                                       Text("Remaining Time",
                                       style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w600,
+                                            fontSize: ResponsiveFont.getFontSize(context, 15),
+                                            fontWeight: FontWeight.bold,
                                             color: Colors.black,
                                             fontFamily: "Montserrat",
                                           ),
@@ -133,8 +148,8 @@ class _Testingmode2State extends State<Testingmode2> {
                                         child: Center(
                                           child: Text("ONLINE",
                                             style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 15),
+                                                  fontWeight: FontWeight.bold,
                                                   color: Colors.white,
                                                   fontFamily: "Montserrat",
                                                 ),
@@ -156,15 +171,15 @@ class _Testingmode2State extends State<Testingmode2> {
                                         children: [
                                           Text("2",
                                             style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 20),
+                                                  fontWeight: FontWeight.bold,
                                                   color: Color(0xFF9810FA),
                                                   fontFamily: "Montserrat",
                                                 ),
                                              ),
                                           Text("hour",
                                             style: TextStyle(
-                                                  fontSize: 12,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 12),
                                                   fontWeight: FontWeight.normal,
                                                   color: Color(0xFF666666),
                                                   fontFamily: "Montserrat",
@@ -184,15 +199,15 @@ class _Testingmode2State extends State<Testingmode2> {
                                         children: [
                                           Text("25",
                                             style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 20),
+                                                  fontWeight: FontWeight.bold,
                                                   color: Color(0xFFF54A00),
                                                   fontFamily: "Montserrat",
                                                 ),
                                              ),
                                           Text("minutes",
                                             style: TextStyle(
-                                                  fontSize: 12,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 12),
                                                   fontWeight: FontWeight.normal,
                                                   color: Color(0xFF666666),
                                                   fontFamily: "Montserrat",
@@ -212,15 +227,15 @@ class _Testingmode2State extends State<Testingmode2> {
                                         children: [
                                           Text("32",
                                             style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 20),
+                                                  fontWeight: FontWeight.bold,
                                                   color: Color(0xFF00A63E),
                                                   fontFamily: "Montserrat",
                                                 ),
                                              ),
                                           Text("seconds",
                                             style: TextStyle(
-                                                  fontSize: 12,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 12),
                                                   fontWeight: FontWeight.normal,
                                                   color: Color(0xFF666666),
                                                   fontFamily: "Montserrat",
@@ -263,8 +278,8 @@ class _Testingmode2State extends State<Testingmode2> {
                                       child: Text(
                                         "Question 01/192",
                                         style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
+                                          fontSize: ResponsiveFont.getFontSize(context, 16),
+                                          fontWeight: FontWeight.bold,
                                           color: Colors.black,
                                           fontFamily: "Montserrat",
                                         ),
@@ -273,21 +288,21 @@ class _Testingmode2State extends State<Testingmode2> {
                                   ),
 
                                   Container(
-                                    decoration: const BoxDecoration(
+                                    decoration:  BoxDecoration(
                                       borderRadius: BorderRadius.vertical(
                                         bottom: Radius.circular(20),
                                       ),
                                       color: Colors.white,
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                                      padding:  EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: const [
+                                        children: [
                                           Text(
                                             "In order to protect the title agan appean appear here and the height will automatically adjust asar here and the height will automatically adjust asainst a mechanics lien, an owner could post and record which of the following document an appear here and the height will automatically adjust as",
                                             style: TextStyle(
-                                              fontSize: 20,
+                                              fontSize: ResponsiveFont.getFontSize(context, 20),
                                               fontWeight: FontWeight.w500,
                                               color: Colors.black,
                                               fontFamily: "Montserrat",
@@ -317,7 +332,7 @@ class _Testingmode2State extends State<Testingmode2> {
                                       controller.answerSelect(index);
                                     },
                                     child: Container(
-                                      height: 110,
+                                      height: containerHeight, //remove this to ynamically change with answer size
                                       width: 600,
                                       margin: const EdgeInsets.only(bottom: 20),//spacing between the grid items
                                       decoration: BoxDecoration(
@@ -336,7 +351,7 @@ class _Testingmode2State extends State<Testingmode2> {
                                               child: Text(
                                                 plan['answers'],
                                                 style: TextStyle(
-                                                  fontSize: 18,
+                                                  fontSize: ResponsiveFont.getFontSize(context, 18),
                                                   fontWeight: FontWeight.w500,
                                                   color:Colors.black,
                                                   fontFamily: 'Montserrat',
@@ -391,7 +406,7 @@ class _Testingmode2State extends State<Testingmode2> {
                             },
                             child: Text("Next",
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: ResponsiveFont.getFontSize(context, 16),
                                 color: Colors.white,
                                 fontFamily: "Montserrat",
                                 fontWeight: FontWeight.bold,
@@ -420,7 +435,7 @@ class _Testingmode2State extends State<Testingmode2> {
                             },
                             child: Text("Cancel",
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: ResponsiveFont.getFontSize(context, 16),
                                 color: Colors.black,
                                 fontFamily: "Montserrat",
                                 fontWeight: FontWeight.bold,
@@ -437,8 +452,8 @@ class _Testingmode2State extends State<Testingmode2> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                height: 75,
-                                width: 158,
+                                height: resultBox,
+                                width: resultBox * 2,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.white,
@@ -451,26 +466,23 @@ class _Testingmode2State extends State<Testingmode2> {
                                   ],
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 10),
+                                  padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 5),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 13.0),
-                                        child: Text("Unanswered \nQuestions",
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                            color: Colors.black,
-                                            fontFamily: "Montserrat",
-                                            fontWeight: FontWeight.normal,
-                                            ),
+                                      Text("answered \nQuestions",
+                                        style: TextStyle(
+                                          fontSize: ResponsiveFont.getFontSize(context, 14),
+                                          color: Colors.black,
+                                          fontFamily: "Montserrat",
+                                          fontWeight: FontWeight.normal,
                                           ),
-                                      ),
+                                        ),
                                       Padding(
                                         padding: const EdgeInsets.only(bottom: 30.0),
                                         child: Text("5",
                                           style: TextStyle(
-                                            fontSize: 25,
+                                            fontSize: ResponsiveFont.getFontSize(context, 22),
                                             color: Colors.black.withAlpha(100),
                                             fontFamily: "Montserrat",
                                             fontWeight: FontWeight.bold,
@@ -483,8 +495,8 @@ class _Testingmode2State extends State<Testingmode2> {
                               ),
                           
                               Container(
-                                height: 75,
-                                width: 158,
+                                height: resultBox,
+                                width: resultBox * 2,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.white,
@@ -497,31 +509,32 @@ class _Testingmode2State extends State<Testingmode2> {
                                   ],
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 10),
+                                  padding:  EdgeInsets.symmetric(vertical: 5,horizontal: 5),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 13.0),
-                                        child: Text("Unanswered \nQuestions",
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                            color: Colors.black,
-                                            fontFamily: "Montserrat",
-                                            fontWeight: FontWeight.normal,
-                                            ),
+                                      Text("Unanswered \nQuestions",
+                                        style: TextStyle(
+                                          fontSize: ResponsiveFont.getFontSize(context, 14),
+                                          color: Colors.black,
+                                          fontFamily: "Montserrat",
+                                          fontWeight: FontWeight.normal,
                                           ),
-                                      ),
+                                        ),
                                       Padding(
-                                        padding: const EdgeInsets.only(bottom: 30.0),
-                                        child: Text("10",
-                                          style: TextStyle(
-                                            fontSize: 25,
-                                            color: Colors.black.withAlpha(100),
-                                            fontFamily: "Montserrat",
-                                            fontWeight: FontWeight.bold,
+                                        padding:  EdgeInsets.only(bottom: 30.0),
+                                        child: Expanded(
+                                          child: Text("10",
+                                            style: TextStyle(
+                                              fontSize: ResponsiveFont.getFontSize(context, 22),
+                                              color: Colors.black.withAlpha(100),
+                                              fontFamily: "Montserrat",
+                                              fontWeight: FontWeight.bold,
+                                              overflow: TextOverflow.clip
+                                              ),
+                                              maxLines: 2,
                                             ),
-                                          ),
+                                        ),
                                       ),
                                       ],
                                     ),
