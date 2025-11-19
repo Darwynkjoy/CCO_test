@@ -111,7 +111,7 @@ class _ClassroomPage2State extends State<ClassroomPage2> {
                                       radius: screenHeight * 0.03,
                                       backgroundColor: Colors.white,
                                       child: Icon(
-                                          Icons.play_arrow_rounded,size: screenHeight*.1*.5,
+                                          Icons.play_arrow_rounded,size: screenHeight*.05,
                                             color: Color(0xFFCF0829),
                                             ),
                                     ),

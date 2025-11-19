@@ -23,7 +23,7 @@ class _Testingmode2State extends State<Testingmode2> {
     double resultBox;
       if (screenHeight < 800) {
         containerHeight = screenHeight * .17;
-        resultBox = screenHeight * 0.1;
+        resultBox = screenHeight * 0.14;
       } else if (screenHeight < 1000) {
         containerHeight = screenHeight * 0.12;
         resultBox = screenHeight * 0.08;
@@ -452,10 +452,9 @@ class _Testingmode2State extends State<Testingmode2> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                height: resultBox,
-                                width: resultBox * 2,
+                                width: resultBox,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(20),
                                   color: Colors.white,
                                   boxShadow: [
                                     BoxShadow(
@@ -466,39 +465,41 @@ class _Testingmode2State extends State<Testingmode2> {
                                   ],
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 5),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  padding: EdgeInsets.all(10.0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text("answered \nQuestions",
+                                      Text("24",
                                         style: TextStyle(
-                                          fontSize: ResponsiveFont.getFontSize(context, 14),
-                                          color: Colors.black,
+                                          fontSize: ResponsiveFont.getFontSize(context, 18),
+                                          color: Colors.black.withAlpha(100),
                                           fontFamily: "Montserrat",
-                                          fontWeight: FontWeight.normal,
-                                          ),
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(bottom: 30.0),
-                                        child: Text("5",
+                                      ),
+                                      Expanded(
+                                        child: Text("Answered Questions",
                                           style: TextStyle(
-                                            fontSize: ResponsiveFont.getFontSize(context, 22),
-                                            color: Colors.black.withAlpha(100),
+                                            fontSize: ResponsiveFont.getFontSize(context, 14),
+                                            color: Colors.black,
                                             fontFamily: "Montserrat",
                                             fontWeight: FontWeight.bold,
-                                            ),
                                           ),
+                                          maxLines: 2,
+                                          softWrap: true,
+                                          overflow: TextOverflow.visible,
+                                        ),
                                       ),
                                     ],
                                   ),
                                 ),
                               ),
-                          
+                              
                               Container(
-                                height: resultBox,
-                                width: resultBox * 2,
+                                width: resultBox,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(20),
                                   color: Colors.white,
                                   boxShadow: [
                                     BoxShadow(
@@ -509,41 +510,37 @@ class _Testingmode2State extends State<Testingmode2> {
                                   ],
                                 ),
                                 child: Padding(
-                                  padding:  EdgeInsets.symmetric(vertical: 5,horizontal: 5),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  padding: EdgeInsets.all(10.0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text("Unanswered \nQuestions",
+                                      Text("24",
+                                        style: TextStyle(
+                                          fontSize: ResponsiveFont.getFontSize(context, 18),
+                                          color: Colors.black.withAlpha(100),
+                                          fontFamily: "Montserrat",
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Text("Answered Questions",
                                         style: TextStyle(
                                           fontSize: ResponsiveFont.getFontSize(context, 14),
                                           color: Colors.black,
                                           fontFamily: "Montserrat",
-                                          fontWeight: FontWeight.normal,
-                                          ),
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                      Padding(
-                                        padding:  EdgeInsets.only(bottom: 30.0),
-                                        child: Expanded(
-                                          child: Text("10",
-                                            style: TextStyle(
-                                              fontSize: ResponsiveFont.getFontSize(context, 22),
-                                              color: Colors.black.withAlpha(100),
-                                              fontFamily: "Montserrat",
-                                              fontWeight: FontWeight.bold,
-                                              overflow: TextOverflow.clip
-                                              ),
-                                              maxLines: 2,
-                                            ),
-                                        ),
+                                          maxLines: 2,
+                                          softWrap: true,
+                                          overflow: TextOverflow.visible,
                                       ),
-                                      ],
-                                    ),
+                                    ],
                                   ),
                                 ),
-                            
-                              ],
-                            ),
-                          )
+                              )
+                            ],
+                          ),
+                        )
                         ],
                       ),
                     ),

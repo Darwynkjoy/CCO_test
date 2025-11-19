@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ClassroomPage1 extends StatefulWidget {
-  const ClassroomPage1({super.key});
+   const ClassroomPage1({super.key});
 
   @override
   State<ClassroomPage1> createState() => _ClassroomPage1State();
@@ -29,7 +29,7 @@ class _ClassroomPage1State extends State<ClassroomPage1> {
               Container(
                   width: double.infinity,
                   height: screenHeight,
-                  decoration: const BoxDecoration(
+                  decoration:  BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('assets/images/Backhh.png'),
                       fit: BoxFit.cover,
@@ -82,218 +82,179 @@ class _ClassroomPage1State extends State<ClassroomPage1> {
                       constraints: BoxConstraints(
                         minHeight: MediaQuery.of(context).size.height - 130, // fills below area when viewed in devices large screen 
                       ),
-                      decoration: const BoxDecoration(
+                      decoration:  BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(40),
                           topRight: Radius.circular(40),
                         ),
                       ),
+                      // Inside the white container (replace only from child: Padding(...) onwards)
                       child: Padding(
-                        padding: EdgeInsetsGeometry.symmetric(horizontal:  20,vertical:  30),
+                        padding:  EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Container(
-                              constraints: BoxConstraints(
-                                maxHeight: screenHeight * 0.18,
-                              ),
-                              width: 600,
-                              height: screenHeight*.2,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withAlpha(200), // shadow color
-                                    blurRadius: 10,
-                                    offset: Offset(0, 5)
-                                  )
-                                ]
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 20),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text("Please select category",
-                                      style: TextStyle(
-                                        fontSize: ResponsiveFont.getFontSize(context, 20),
-                                        fontWeight: FontWeight.normal,
-                                        color: Colors.black,
-                                        fontFamily: 'Montserrat', // font Montserrat
-                                        ),
-                                      ),
-                                              
-                                    Container(
-                                          height: screenHeight * 0.06,
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(width: 1, color: Colors.grey.shade300),
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.circular(10),
-                                          ),
-                                          child: Center(
-                                            child: Obx(
-                                              () => DropdownButton<String>(
-                                                iconEnabledColor: Colors.black,
-                                                dropdownColor: Colors.white,
-                                                alignment: Alignment.center,
-                                                borderRadius: BorderRadius.circular(10),
-                                                value: controller.selectedPage.value,
-                                                isExpanded: true,
-                                                iconSize: screenHeight * 0.04,
-                                                hint: Text(
-                                                  'Select Category',
-                                                  style: TextStyle(
-                                                    fontSize: ResponsiveFont.getFontSize(context, 18),
-                                                    color: Colors.black,
-                                                    fontFamily: 'Montserrat',
-                                                    fontWeight: FontWeight.normal,
-                                                  ),
-                                                ),
-                                                items: controller.pages.map((String item) {
-                                                  return DropdownMenuItem<String>(
-                                                    value: item,
-                                                    child: Center(
-                                                      child: Text(item,
-                                                        style: TextStyle(
-                                                        fontSize: ResponsiveFont.getFontSize(context, 16),
-                                                        color: Color(0xFF5E5E5E),
-                                                        fontFamily: 'Montserrat',
-                                                        fontWeight: FontWeight.bold,
-                                                      ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                }).toList(),
-                                                onChanged: (String? newValue) {
-                                                  controller.updateSelectedItem(newValue);
-                                                },
-                                                // Remove the underline.
-                                                underline: SizedBox.shrink(),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                  
-                                  ],
+                            // ---- HEADER ----
+                            Center(
+                              child: Text(
+                                "Please select category",
+                                style: TextStyle(
+                                  fontSize: ResponsiveFont.getFontSize(context, 22),
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black87,
+                                  fontFamily: 'Montserrat',
                                 ),
                               ),
                             ),
 
-                            SizedBox(
-                              height: screenHeight*.06,
-                              ),
+                             SizedBox(height: 25),
 
+                            // ---- DROPDOWN ----
                             Container(
-                                width: 600,
-                                height: screenHeight*.35,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFFFF4E0),
-                                  borderRadius: BorderRadius.circular(20),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withAlpha(200), // shadow color
-                                      blurRadius: 10,
-                                      offset: Offset(0, 5)
-                                    )
-                                  ]
+                              height: screenHeight * 0.065,
+                              width: 600,
+                              padding:  EdgeInsets.symmetric(horizontal: 15),
+                              decoration: BoxDecoration(
+                                border: Border.all(width: 1, color: Colors.grey.shade300),
+                                color: Colors.grey.shade50,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Center(
+                                child: Obx(
+                                  () => DropdownButton<String>(
+                                    value: controller.selectedPage.value,
+                                    hint: Text(
+                                      'Select Category',
+                                      style: TextStyle(
+                                        fontSize: ResponsiveFont.getFontSize(context, 18),
+                                        color: Colors.grey.shade700,
+                                        fontFamily: 'Montserrat',
+                                      ),
+                                    ),
+                                    icon:  Icon(Icons.keyboard_arrow_down_rounded,
+                                        color: Colors.black54),
+                                    underline:  SizedBox.shrink(),
+                                    isExpanded: true,
+                                    borderRadius: BorderRadius.circular(12),
+                                    dropdownColor: Colors.white,
+                                    items: controller.pages.map((String item) {
+                                      return DropdownMenuItem<String>(
+                                        value: item,
+                                        child: Text(
+                                          item,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontSize: ResponsiveFont.getFontSize(context, 16),
+                                            color: Colors.black87,
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      );
+                                    }).toList(),
+                                    onChanged: (String? newValue) {
+                                      controller.updateSelectedItem(newValue);
+                                    },
+                                  ),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              ),
+                            ),
+
+                             SizedBox(height: 40),
+
+                            // ---- CONTENT CARD ----
+                            Container(
+                              width: 600,
+                              padding:  EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+                              decoration: BoxDecoration(
+                                color:  Color(0xFFFFF4E0),
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black12,
+                                    blurRadius: 10,
+                                    offset:  Offset(0, 5),
+                                  )
+                                ],
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  // VIDEO ROW
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      Row(
-                                        children: [
-                                          GestureDetector(
-                                            onTap: () => Get.toNamed('/classroom2'),
-                                            child: Container(
-                                              height: screenHeight * 0.09, 
-                                              width: screenHeight * 0.14, 
-                                              decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(15),
-                                                color: Colors.white,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: Colors.grey.withAlpha(200), // shadow color
-                                                    blurRadius: 3,
-                                                    offset: Offset(0, 1)
-                                                  )
-                                                ]
-                                              ),
-                                              child: Icon(
-                                                Icons.play_arrow_rounded,size: screenHeight*.1*.5,
-                                                color: Color(0xFFCF0829),
-                                                ),
-                                            ),
+                                      GestureDetector(
+                                        onTap: () => Get.toNamed('/classroom2'),
+                                        child: Container(
+                                          height: screenHeight * 0.085,
+                                          width: screenHeight * 0.13,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.circular(15),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey.withAlpha(220),
+                                                blurRadius: 4,
+                                                offset:  Offset(0, 2),
+                                              )
+                                            ],
                                           ),
-
-                                          SizedBox(
-                                            width: 20,
+                                          child: Icon(
+                                            Icons.play_arrow_rounded,
+                                            size: screenHeight * 0.06,
+                                            color:  Color(0xFFCF0829),
                                           ),
-
-                                          Expanded(
-                                            child: Text("No description available!",
-                                              style: TextStyle(
-                                                fontSize: ResponsiveFont.getFontSize(context, 18),
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                                fontFamily: 'Montserrat', // font Montserrat
-                                                overflow: TextOverflow.clip
-                                                ),
-                                                maxLines: 2,
-                                              ),
-                                          ),
-                                        ],
+                                        ),
                                       ),
-                                      
-                                      SizedBox(
-                                        height: 20,
-                                      ),
-
-                                      Row(
-                                        children: [
-                                          Container(
-                                            height: screenHeight*.06,
-                                            width: screenHeight*.06,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(10),
-                                              color: Colors.white,
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Colors.grey.withAlpha(200), // shadow color
-                                                  blurRadius: 3,
-                                                  offset: Offset(0, 1)
-                                                )
-                                              ]
-                                            ),
-                                            child: Icon(
-                                              Icons.picture_as_pdf_rounded,size: screenHeight*.1*.4,
-                                              color: Color(0xFFCF0829),
-                                              ),
+                                       SizedBox(width: 20),
+                                      Expanded(
+                                        child: Text(
+                                          "No description available!",
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.black87,
+                                            fontFamily: 'Montserrat',
                                           ),
-
-                                          SizedBox(
-                                            width: 20,
-                                          ),
-
-                                          Text("Workbook",
-                                            style: TextStyle(
-                                              fontSize: ResponsiveFont.getFontSize(context, 18),
-                                              fontWeight: FontWeight.normal,
-                                              color: Colors.black,
-                                              fontFamily: 'Montserrat', // font Montserrat
-                                              ),
-                                            ),
-                                        ],
+                                        ),
                                       ),
-                                      
-                                      Divider(
-                                        thickness: 1,
-                                      ),
+                                    ],
+                                  ),
 
-                                      Row(
+                                   SizedBox(height: 25),
+
+                                  // WORKBOOK ROW
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.picture_as_pdf_rounded,
+                                        size: screenHeight * 0.04,
+                                        color:  Color(0xFFCF0829),
+                                      ),
+                                       SizedBox(width: 15),
+                                      Text(
+                                        "Workbook",
+                                        style: TextStyle(
+                                          fontSize: ResponsiveFont.getFontSize(context, 18),
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black87,
+                                          fontFamily: 'Montserrat',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+
+                                   SizedBox(height: 10),
+                                   Divider(thickness: 1),
+
+                                   SizedBox(height: 10),
+
+                                  // CHECKBOX ROW
+                                  Row(
                                         children: [
                                           Obx(() => Transform.scale(
                                             scale: screenHeight*.05/40, // Scale checkbox to desired size
@@ -329,10 +290,9 @@ class _ClassroomPage1State extends State<ClassroomPage1> {
                                             ),
                                         ],
                                       ),
-                                    ],
-                                  ),
-                                ),
-                              )
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ),
