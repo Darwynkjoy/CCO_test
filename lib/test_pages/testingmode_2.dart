@@ -23,13 +23,13 @@ class _Testingmode2State extends State<Testingmode2> {
     double resultBox;
       if (screenHeight < 800) {
         containerHeight = screenHeight * .17;
-        resultBox = screenHeight * 0.14;
+        resultBox = screenHeight * 0.13;
       } else if (screenHeight < 1000) {
         containerHeight = screenHeight * 0.12;
-        resultBox = screenHeight * 0.08;
+        resultBox = screenHeight * 0.11;
       } else {
         containerHeight = screenHeight * 0.1; // For iPads & tablets
-        resultBox = screenHeight * 0.09;
+        resultBox = screenHeight * 0.1;
       }
 
     return Scaffold(
@@ -447,39 +447,41 @@ class _Testingmode2State extends State<Testingmode2> {
                         SizedBox(height: 20,),
 
                         SizedBox(
-                          width: 600,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                width: resultBox,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withValues(alpha: 100),
-                                      blurRadius: 10,
-                                      offset: Offset(1, 5),
-                                    ),
-                                  ],
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.all(10.0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text("24",
-                                        style: TextStyle(
-                                          fontSize: ResponsiveFont.getFontSize(context, 18),
-                                          color: Colors.black.withAlpha(100),
-                                          fontFamily: "Montserrat",
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                            width: 600,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  height: resultBox * 1,
+                                  width: resultBox * 1.6,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withAlpha(100),
+                                        blurRadius: 10,
+                                        offset: const Offset(1, 5),
                                       ),
-                                      Expanded(
-                                        child: Text("Answered Questions",
+                                    ],
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "24",
+                                          style: TextStyle(
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
+                                            color: Colors.black.withAlpha(100),
+                                            fontFamily: "Montserrat",
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Text(
+                                          "Answered Questions",
                                           style: TextStyle(
                                             fontSize: ResponsiveFont.getFontSize(context, 14),
                                             color: Colors.black,
@@ -490,57 +492,58 @@ class _Testingmode2State extends State<Testingmode2> {
                                           softWrap: true,
                                           overflow: TextOverflow.visible,
                                         ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  height: resultBox * 1,
+                                  width: resultBox * 1.6,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withAlpha(100),
+                                        blurRadius: 10,
+                                        offset: const Offset(1, 5),
                                       ),
                                     ],
                                   ),
-                                ),
-                              ),
-                              
-                              Container(
-                                width: resultBox,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withValues(alpha: 100),
-                                      blurRadius: 10,
-                                      offset: Offset(1, 5),
-                                    ),
-                                  ],
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.all(10.0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text("24",
-                                        style: TextStyle(
-                                          fontSize: ResponsiveFont.getFontSize(context, 18),
-                                          color: Colors.black.withAlpha(100),
-                                          fontFamily: "Montserrat",
-                                          fontWeight: FontWeight.bold,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "8",
+                                          style: TextStyle(
+                                            fontSize: ResponsiveFont.getFontSize(context, 18),
+                                            color: Colors.black.withAlpha(100),
+                                            fontFamily: "Montserrat",
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                      ),
-                                      Text("Answered Questions",
-                                        style: TextStyle(
-                                          fontSize: ResponsiveFont.getFontSize(context, 14),
-                                          color: Colors.black,
-                                          fontFamily: "Montserrat",
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                        Text(
+                                          "Unanswered Questions",
+                                          style: TextStyle(
+                                            fontSize: ResponsiveFont.getFontSize(context, 14),
+                                            color: Colors.black,
+                                            fontFamily: "Montserrat",
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                           maxLines: 2,
                                           softWrap: true,
                                           overflow: TextOverflow.visible,
-                                      ),
-                                    ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              )
-                            ],
-                          ),
-                        )
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     ),
