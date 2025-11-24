@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Accountpagecontroller extends GetxController {
+
   // Use RxString to make the selected item observable.
   final Rx<String?> selectedItem = Rx<String?>(null);
 
@@ -12,7 +13,7 @@ class Accountpagecontroller extends GetxController {
     'Lisence Type 3',
   ];
 
-  // A method to update the selected item.
+  // A method to update the selected item. of lisence
   void updateSelectedItem(String? newValue) {
     selectedItem.value = newValue;
   }
@@ -30,6 +31,7 @@ class Accountpagecontroller extends GetxController {
       selectedDate.value = picked;
     }
   }
+  
    // validate the first name 
   var firstName = ''.obs;
   var firstNameError = Rxn<String>(); // Rxn is for a reactive nullable variable

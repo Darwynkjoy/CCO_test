@@ -517,8 +517,29 @@ class _AccountcreateState extends State<Accountcreate> {
                                             ),
                                           ),
                                           onPressed: () {
+                                          /*/ Run validations on all fields
+                                          controller.validateFirstName(controller.firstNameController.text);
+                                          controller.validateLastName(controller.lastNameController.text);
+                                          controller.validateEmail(controller.emailController.text);
+                                          controller.validateConfirmEmail(controller.confirmEmailController.text);
+                                          controller.validatePassword(controller.passwordController.text);
+                                          controller.validateConfirmPassword(controller.confirmPasswordController.text);
+
+                                          // Check if all validation errors are null and required fields are filled
+                                          if (
+                                              controller.firstNameError.value == null &&
+                                              controller.lastNameError.value == null &&
+                                              controller.emailError.value == null &&
+                                              controller.confirmEmailError.value == null &&
+                                              controller.passwordError.value == null &&
+                                              controller.confirmPasswordError.value == null &&
+                                              controller.selectedItem.value != null && // ensure license dropdown selected
+                                              controller.selectedDate.value != null // ensure date chosen
+                                          ) */{
+                                            // Proceed to next page
                                             Get.toNamed('/address');
-                                          },
+                                          }
+                                        },
                                           child: Text("Next",
                                             style: TextStyle(
                                               fontSize: ResponsiveFont.getFontSize(context, 18),
