@@ -38,7 +38,9 @@ class _Testingmode1State extends State<Testingmode1> {
                 left: 20,
                 child:
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed('/home');
+                      },
                       style: IconButton.styleFrom(
                         backgroundColor: Colors.white,
                       ),

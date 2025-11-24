@@ -311,7 +311,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                           Text("You will have access until sooner of this date or 4 months",
                                             style: TextStyle(
                                               fontSize: ResponsiveFont.getFontSize(context, 9),
-                                              color: Colors.black,
+                                              color: Color(0xFF666666),
                                               fontFamily: 'Montserrat',
                                               fontWeight: FontWeight.w500,
                                               overflow: TextOverflow.clip
@@ -442,7 +442,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                                 child: Text( "Use 6 or more characters with a mix of letters,numbers & symbols.",
                                                   style: TextStyle(
                                                     fontSize: ResponsiveFont.getFontSize(context, 9),
-                                                    color: Colors.black,
+                                                    color: Color(0xFF666666),
                                                     fontFamily: 'Montserrat',
                                                     fontWeight: FontWeight.w500,
                                                     overflow: TextOverflow.clip

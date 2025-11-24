@@ -228,7 +228,9 @@ class _Trainingpage3State extends State<Trainingpage3> {
                                   borderRadius: BorderRadiusGeometry.circular(40)
                                 ),
                               ),
-                              onPressed: (){},
+                              onPressed: (){
+                                Get.toNamed('/home');
+                              },
                               child: Text("Close",
                                 style: TextStyle(
                                   fontSize: ResponsiveFont.getFontSize(context, 16),

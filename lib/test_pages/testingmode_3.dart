@@ -300,7 +300,7 @@ class _Testingmode3State extends State<Testingmode3> {
                                 ),
                               ),
                               onPressed: (){
-                                Get.toNamed('testing1');
+                                Get.toNamed('/home');
                               },
                               child: Text("Close",
                                 style: TextStyle(

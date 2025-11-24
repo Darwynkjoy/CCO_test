@@ -518,7 +518,9 @@ class _BillCreateState extends State<BillCreate> {
                                       borderRadius: BorderRadiusGeometry.circular(40)
                                     ),
                                   ),
-                                  onPressed: (){},
+                                  onPressed: (){
+                                    Get.toNamed('/login');
+                                  },
                                   child: Text("Submit",
                                     style: TextStyle(
                                       fontSize: ResponsiveFont.getFontSize(context, 16),

@@ -42,7 +42,9 @@ class _Trainingpage1State extends State<Trainingpage1> {
                 left: 20,
                 child:
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed('/home');
+                      },
                       style: IconButton.styleFrom(
                         backgroundColor: Colors.white,
                       ),
