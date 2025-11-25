@@ -314,7 +314,7 @@ class _AccountcreateState extends State<Accountcreate> {
                                               color: Color(0xFF666666),
                                               fontFamily: 'Montserrat',
                                               fontWeight: FontWeight.w500,
-                                              overflow: TextOverflow.clip
+                                              overflow: TextOverflow.clip,
                                                 ),
                                                 maxLines: 2,
                                                 textAlign: TextAlign.center,
@@ -407,59 +407,62 @@ class _AccountcreateState extends State<Accountcreate> {
                                       ),
                         
                                       Obx(()=>
-                                        TextField(
-                                          controller: controller.passwordController,
-                                          onChanged: controller.validatePassword,
-                                          decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                            ),
-                                              enabledBorder: OutlineInputBorder(
-                                                    borderRadius: BorderRadius.circular(40),
-                                                    borderSide: BorderSide(color: Colors.grey.shade300, width: 1),),
-                                                  focusedBorder: OutlineInputBorder(
-                                                    borderRadius: BorderRadius.circular(40),
-                                                    borderSide: BorderSide(color: Colors.blueAccent, width: 1),), // Border when the TextField is selected and its width when selected.
-                                                  errorBorder: OutlineInputBorder(
-                                                    borderRadius: BorderRadius.circular(40),
-                                                    borderSide: BorderSide(color: Colors.red, width: 1),),
-                                                  focusedErrorBorder: OutlineInputBorder(
-                                                    borderRadius: BorderRadius.circular(40),
-                                                    borderSide: BorderSide(color: Colors.red, width: 1),),
-                                            contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
-                                            errorText: controller.passwordError.value,
-                                            hint: Center(
-                                              child: Text( "Password",
+                                        Column(
+                                          children: [
+                                            TextField(
+                                              controller: controller.passwordController,
+                                              onChanged: controller.validatePassword,
+                                              decoration: InputDecoration(
+                                                border: OutlineInputBorder(
+                                                ),
+                                                  enabledBorder: OutlineInputBorder(
+                                                        borderRadius: BorderRadius.circular(40),
+                                                        borderSide: BorderSide(color: Colors.grey.shade300, width: 1),),
+                                                      focusedBorder: OutlineInputBorder(
+                                                        borderRadius: BorderRadius.circular(40),
+                                                        borderSide: BorderSide(color: Colors.blueAccent, width: 1),), // Border when the TextField is selected and its width when selected.
+                                                      errorBorder: OutlineInputBorder(
+                                                        borderRadius: BorderRadius.circular(40),
+                                                        borderSide: BorderSide(color: Colors.red, width: 1),),
+                                                      focusedErrorBorder: OutlineInputBorder(
+                                                        borderRadius: BorderRadius.circular(40),
+                                                        borderSide: BorderSide(color: Colors.red, width: 1),),
+                                                contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 15),
+                                                errorText: controller.passwordError.value,
+                                                hint: Center(
+                                                  child: Text( "Password",
+                                                  style: TextStyle(
+                                                    fontSize: ResponsiveFont.getFontSize(context, 18),
+                                                    color: Colors.black,
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.normal,
+                                                      ),
+                                                    ),
+                                                ),
+                                              ),
+                                              // Input text style, color and font.
                                               style: TextStyle(
                                                 fontSize: ResponsiveFont.getFontSize(context, 18),
                                                 color: Colors.black,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.normal,
-                                                  ),
-                                                ),
-                                            ),
-                                            helper: Center(
-                                              child: Expanded(
-                                                child: Text( "Use 6 or more characters with a mix of letters,numbers & symbols.",
-                                                  style: TextStyle(
-                                                    fontSize: ResponsiveFont.getFontSize(context, 9),
-                                                    color: Color(0xFF666666),
-                                                    fontFamily: 'Montserrat',
-                                                    fontWeight: FontWeight.w500,
-                                                    overflow: TextOverflow.clip
-                                                      ),
-                                                      maxLines: 2,
-                                                      textAlign: TextAlign.center,
-                                                    ),
                                               ),
                                             ),
-                                          ),
-                                          // Input text style, color and font.
-                                          style: TextStyle(
-                                            fontSize: ResponsiveFont.getFontSize(context, 18),
-                                            color: Colors.black,
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.normal,
-                                          ),
+
+                                            SizedBox(height: 3,),
+
+                                            Text("Use 6 or more characters with a mix of letters,numbers & symbols.",
+                                              style: TextStyle(
+                                                fontSize: ResponsiveFont.getFontSize(context, 9),
+                                                color: Color(0xFF666666),
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w500,
+                                                overflow: TextOverflow.clip
+                                                  ),
+                                                maxLines: 2,
+                                                textAlign: TextAlign.center,
+                                              ),
+                                          ],
                                         ),
                                       ),
                         
